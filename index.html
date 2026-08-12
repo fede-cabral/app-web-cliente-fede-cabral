@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda online: productos destacados y filtros para encontrar tu compra ideal.">
+  <title>Mi Tienda Online</title>
+</head>
+<body>
+
+  <header>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="assets/logo.png" alt="Logo de la tienda">
+      </a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="titulo-destacados">
+      <h1 id="titulo-destacados">Productos destacados</h1>
+      <ul>
+        <li>
+          <article>
+            <img src="assets/producto-1.jpg" alt="Producto destacado 1">
+            <h2>Nombre del producto 1</h2>
+            <p>Descripción breve del producto 1.</p>
+            <p>$xxxx</p>
+            <button type="button">Agregar al carrito</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <img src="assets/producto-2.jpg" alt="Producto destacado 2">
+            <h2>Nombre del producto 2</h2>
+            <p>Descripción breve del producto 2.</p>
+            <p>$xxxx</p>
+            <button type="button">Agregar al carrito</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <img src="assets/producto-3.jpg" alt="Producto destacado 3">
+            <h2>Nombre del producto 3</h2>
+            <p>Descripción breve del producto 3.</p>
+            <p>$xxxx</p>
+            <button type="button">Agregar al carrito</button>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="titulo-filtros">
+      <h2 id="titulo-filtros">Filtros</h2>
+      <form action="#" method="get">
+        <fieldset>
+          <legend>Categoría</legend>
+          <label>
+            <input type="checkbox" name="categoria" value="ropa">
+            Ropa
+          </label>
+          <label>
+            <input type="checkbox" name="categoria" value="electro">
+            Electrodomésticos
+          </label>
+          <label>
+            <input type="checkbox" name="categoria" value="deportes">
+            Deportes
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Precio máximo</legend>
+          <label for="precio-max">Desde $0 hasta</label>
+          <input type="range" id="precio-max" name="precio-max" min="0" max="5000" step="100" value="5000">
+        </fieldset>
+
+        <fieldset>
+          <legend>Ordenar por</legend>
+          <label for="orden">
+            <select id="orden" name="orden">
+              <option value="relevancia">Relevancia</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <button type="submit">Aplicar filtros</button>
+        <button type="reset">Limpiar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mi Tienda Online. Todos los derechos reservados.</p>
+    <nav aria-label="Navegación del pie de página">
+      <ul>
+        <li><a href="terminos.html">Términos y condiciones</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="ayuda.html">Ayuda</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+</html>
