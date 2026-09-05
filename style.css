@@ -1,0 +1,202 @@
+/* ===== Paleta: verde y dorado ===== */
+:root {
+  --verde-oscuro: #234d33;
+  --verde: #3a6b4a;
+  --verde-claro: #e8efe9;
+  --dorado: #c9a227;
+  --dorado-claro: #e5c76b;
+  --crema: #faf8f3;
+  --texto: #2b2b2b;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  background-color: var(--crema);
+}
+
+/* ===== Header ===== */
+header {
+  background-color: var(--verde-oscuro);
+  color: #ffffff;
+  padding: 24px 32px;
+}
+
+header h1 {
+  margin: 0 0 16px 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* ===== Nav ===== */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+  border-bottom-color: var(--dorado);
+}
+
+/* ===== Layout: filtros izquierda, catalogo centro ===== */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 32px;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+aside {
+  flex: 1 1 220px;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+aside h2 {
+  margin-top: 0;
+  font-size: 18px;
+  color: var(--verde-oscuro);
+  border-bottom: 2px solid var(--dorado);
+  padding-bottom: 8px;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside li {
+  padding: 6px 0;
+}
+
+aside a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+aside a:hover {
+  color: var(--dorado);
+}
+
+section {
+  flex: 3 1 420px;
+}
+
+section h2 {
+  margin-top: 0;
+  color: var(--verde-oscuro);
+}
+
+/* ===== Productos ===== */
+article {
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+article:hover {
+  border-color: var(--dorado-claro);
+}
+
+article h3 {
+  margin: 0 0 8px 0;
+  color: var(--verde-oscuro);
+}
+
+article p:last-child {
+  color: var(--dorado);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ===== Tabla del carrito ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+th {
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+}
+
+th, td {
+  border: 1px solid var(--verde-claro);
+  padding: 12px;
+  text-align: left;
+}
+
+/* ===== Formulario ===== */
+input, textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid var(--verde-claro);
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+button {
+  background-color: var(--verde-oscuro);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--dorado);
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--verde-oscuro);
+  color: #ffffff;
+  padding: 24px 32px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer nav ul {
+  justify-content: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header, main, footer {
+    padding: 20px 16px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+}
