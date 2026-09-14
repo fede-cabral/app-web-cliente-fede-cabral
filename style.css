@@ -7,6 +7,7 @@
   --dorado-claro: #e5c76b;
   --crema: #faf8f3;
   --texto: #2b2b2b;
+  --rojo: #9c3a30;
 }
 
 /* ===== Base ===== */
@@ -26,13 +27,18 @@ body {
 header {
   background-color: var(--verde-oscuro);
   color: #ffffff;
-  padding: 24px 32px;
+  padding: 40px 32px 26px;
+  text-align: center;
+  border-bottom: 3px solid var(--dorado);
 }
 
 header h1 {
-  margin: 0 0 16px 0;
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--dorado-claro);
+  margin: 0 0 20px 0;
+  letter-spacing: 3px;
 }
 
 /* ===== Nav ===== */
@@ -42,7 +48,8 @@ nav ul {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  justify-content: center;
+  gap: 28px;
 }
 
 nav a {
@@ -63,24 +70,28 @@ main {
   gap: 32px;
   padding: 32px;
   align-items: flex-start;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 aside {
-  flex: 1 1 220px;
+  flex: 1 1 280px;
+  min-width: 0;
   background-color: #ffffff;
   border: 1px solid var(--verde-claro);
   border-radius: 10px;
-  padding: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 6px rgba(35, 77, 51, 0.07);
 }
 
 aside h2 {
+  font-family: "Playfair Display", Georgia, serif;
   margin-top: 0;
-  font-size: 18px;
+  margin-bottom: 8px;
+  font-size: 26px;
   color: var(--verde-oscuro);
   border-bottom: 2px solid var(--dorado);
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 
 aside ul {
@@ -90,24 +101,40 @@ aside ul {
 }
 
 aside li {
-  padding: 6px 0;
+  padding: 0;
+  border-bottom: 1px solid var(--verde-claro);
+}
+
+aside li:last-child {
+  border-bottom: none;
 }
 
 aside a {
+  display: block;
+  padding: 14px 10px;
+  border-radius: 6px;
+  font-size: 17px;
   color: var(--verde);
   text-decoration: none;
+  transition: background-color 0.2s, padding-left 0.2s;
 }
 
 aside a:hover {
-  color: var(--dorado);
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  padding-left: 18px;
 }
 
 section {
   flex: 3 1 420px;
+  min-width: 0;
 }
 
 section h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
   margin-top: 0;
+  margin-bottom: 18px;
   color: var(--verde-oscuro);
 }
 
@@ -118,10 +145,14 @@ article {
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(35, 77, 51, 0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 article:hover {
   border-color: var(--dorado-claro);
+  box-shadow: 0 6px 16px rgba(35, 77, 51, 0.14);
+  transform: translateY(-3px);
 }
 
 article h3 {
@@ -181,9 +212,10 @@ button:hover {
 footer {
   background-color: var(--verde-oscuro);
   color: #ffffff;
-  padding: 24px 32px;
+  padding: 28px 32px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
+  border-top: 3px solid var(--dorado);
 }
 
 footer nav ul {
@@ -193,10 +225,122 @@ footer nav ul {
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
   header, main, footer {
-    padding: 20px 16px;
+    padding: 24px 16px;
+  }
+
+  header h1 {
+    font-size: 34px;
+    letter-spacing: 1px;
   }
 
   nav ul {
     gap: 16px;
   }
+}
+/* ===== Catalogo por categorias ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+.catalogo {
+  flex: 3 1 420px;
+  min-width: 0;
+}
+
+.catalogo section {
+  margin-bottom: 40px;
+  scroll-margin-top: 20px;
+}
+
+/* ===== Grilla de productos ===== */
+.grilla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grilla article {
+  flex: 1 1 260px;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+
+.grilla article h3 {
+  font-size: 19px;
+}
+
+/* ===== Fotos de producto ===== */
+article img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.precio {
+  color: var(--dorado);
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.proximamente {
+  color: var(--verde);
+  font-style: italic;
+}
+
+
+/* ===== Boton de eliminar del carrito ===== */
+.eliminar {
+  background-color: transparent;
+  color: var(--rojo);
+  border: 1px solid var(--rojo);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.eliminar:hover {
+  background-color: var(--rojo);
+  color: #ffffff;
+}
+
+
+/* ===== La tabla puede scrollear sola en pantallas chicas ===== */
+.tabla-scroll {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  th, td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .eliminar {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Boton de agregar al carrito ===== */
+.agregar {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 16px;
+  font-size: 15px;
+}
+
+.agregar.agregado {
+  background-color: var(--dorado);
+}
+
+#carrito-vacio {
+  font-style: italic;
+  color: var(--verde);
 }
