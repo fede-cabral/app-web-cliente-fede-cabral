@@ -64,8 +64,8 @@ Antes de hacerlo pienso que:
    que también hay que agregarla en el encabezado.
 2. Ese botón va a tener que verse distinto al de Enviar, porque borrar no
    es lo mismo que confirmar.
-3. Creo que el botón todavía no va a borrar nada de verdad: para eso hace
-   falta JavaScript, que no vimos.
+3. Por ahora el botón va a ser solo la parte visual, la columna y el
+   estilo; que borre de verdad queda para más adelante.
 4. Para agrandar los filtros y los productos alcanza con cambiar números
    en el CSS, no debería tocar el HTML.
 5. Si agrando las tarjetas van a entrar menos por fila, y en el celular se
