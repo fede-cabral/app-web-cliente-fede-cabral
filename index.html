@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mates_Oiver</title>
+  <title>Mates_Oliver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>Mates_Oiver</h1>
+    <h1>Mates_Oliver</h1>
     <nav>
-         <ul>
+      <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="producto.html">Productos</a></li>
         <li><a href="carrito.html">Carrito</a></li>
@@ -20,46 +21,176 @@
     </nav>
   </header>
 
-    <main>
+  <main>
 
     <aside>
       <h2>Filtros</h2>
       <ul>
-        <li><a href="#">Mates de calabaza</a></li>
-        <li><a href="#">Mates de madera</a></li>
-        <li><a href="#">Bombillas de alpaca</a></li>
-        <li><a href="#">Yerbas</a></li>
-        <li><a href="#">Termos</a></li>
+        <li><a href="#mates-calabaza">Mates de calabaza</a></li>
+        <li><a href="#mates-madera">Mates de madera</a></li>
+        <li><a href="#bombillas-alpaca">Bombillas de alpaca</a></li>
+        <li><a href="#yerbas">Yerbas</a></li>
+        <li><a href="#termos">Termos</a></li>
       </ul>
     </aside>
 
-    <section>
-      <h2>Productos destacados</h2>
+    <div class="catalogo">
 
-      <article>
-        <h3>Mate imperial de calabaza</h3>
-        <p>Calabaza forrada en cuero, con virola de alpaca.</p>
-        <p>$25000</p>
-      </article>
+      <section id="mates-calabaza">
+        <h2>Mates de calabaza</h2>
+        <p class="proximamente">Próximamente.</p>
+      </section>
 
-      <article>
-        <h3>Bombilla de alpaca</h3>
-        <p>Bombilla pico de loro, 20 cm.</p>
-        <p>$12000</p>
-      </article>
+      <section id="mates-madera">
+        <h2>Mates de madera elegí el tuyo por $68000</h2>
+        <div class="grilla">
 
-      <article>
-        <h3>Termo de acero 1 litro</h3>
-        <p>Mantiene la temperatura 12 horas.</p>
-        <p>$45000</p>
-      </article>
+          <article>
+            <img src="fotos/mata-paracaidista-claro.jpeg" alt="Mata Paracaidista claro">
+            <h3>Mata Paracaidista claro</h3>
+            <button type="button" class="agregar" data-nombre="Mata Paracaidista claro">Agregar al carrito</button>
+          </article>
 
-    </section>
+          <article>
+            <img src="fotos/mate-asalto-aereo.jpeg" alt="Mate Asalto Aereo">
+            <h3>Mate Asalto Aereo</h3>
+            <button type="button" class="agregar" data-nombre="Mate Asalto Aereo">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-cazador-de-montana-claro.jpeg" alt="Mate Cazador de Montaña claro">
+            <h3>Mate Cazador de Montaña claro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Cazador de Montaña claro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-cazador-de-montana-negro.jpeg" alt="Mate Cazador de Montaña negro">
+            <h3>Mate Cazador de Montaña negro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Cazador de Montaña negro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-cazador-de-monte-claro.jpeg" alt="Mate Cazador de Monte Claro">
+            <h3>Mate Cazador de Monte Claro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Cazador de Monte Claro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-cazador-de-monte-negro.jpeg" alt="Mate Cazador de Monte Negro">
+            <h3>Mate Cazador de Monte Negro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Cazador de Monte Negro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
+            <h3>Mate Comando claro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Comando claro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-monte-claro.jpeg" alt="Mate Monte claro">
+            <h3>Mate Monte claro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Monte claro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-monte-negro.jpeg" alt="Mate Monte negro">
+            <h3>Mate Monte negro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Monte negro">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/mate-paracaidista-oscuro.jpeg" alt="Mate Paracaidista Oscuro">
+            <h3>Mate Paracaidista Oscuro</h3>
+            <button type="button" class="agregar" data-nombre="Mate Paracaidista Oscuro">Agregar al carrito</button>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="bombillas-alpaca">
+        <h2>Bombillas de alpaca</h2>
+        <div class="grilla">
+
+          <article>
+            <img src="fotos/bombilla-alpaca-caballeria.jpeg" alt="Bombilla Alpaca Caballeria">
+            <h3>Bombilla Alpaca Caballeria</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca Caballeria">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-comando.jpeg" alt="Bombilla Alpaca Comando">
+            <h3>Bombilla Alpaca Comando</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca Comando">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-comando-2.jpeg" alt="Bombilla Alpaca Comando 2">
+            <h3>Bombilla Alpaca Comando 2</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca Comando 2">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-ffee.jpeg" alt="Bombilla Alpaca FFEE">
+            <h3>Bombilla Alpaca FFEE</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca FFEE">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-intendencia.jpeg" alt="Bombilla Alpaca Intendencia">
+            <h3>Bombilla Alpaca Intendencia</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca Intendencia">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-asalto-aereo.jpeg" alt="Bombilla Alpaca asalto aereo">
+            <h3>Bombilla Alpaca asalto aereo</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca asalto aereo">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-cazador-de-montana.jpeg" alt="Bombilla Alpaca cazador de Montaña">
+            <h3>Bombilla Alpaca cazador de Montaña</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca cazador de Montaña">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-cazador-patagonico.jpeg" alt="Bombilla Alpaca cazador patagonico">
+            <h3>Bombilla Alpaca cazador patagonico</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca cazador patagonico">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-educacion-fisica.jpeg" alt="Bombilla Alpaca educacion fisica">
+            <h3>Bombilla Alpaca educacion fisica</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca educacion fisica">Agregar al carrito</button>
+          </article>
+
+          <article>
+            <img src="fotos/bombilla-alpaca-paracaidista.jpeg" alt="Bombilla Alpaca paracaidista">
+            <h3>Bombilla Alpaca paracaidista</h3>
+            <button type="button" class="agregar" data-nombre="Bombilla Alpaca paracaidista">Agregar al carrito</button>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="yerbas">
+        <h2>Yerbas</h2>
+        <p class="proximamente">Próximamente.</p>
+      </section>
+
+      <section id="termos">
+        <h2>Termos</h2>
+        <p class="proximamente">Próximamente.</p>
+      </section>
+
+    </div>
 
   </main>
 
-    <footer>
-    <p>Mates_Oiver 2026</p>
+  <footer>
+    <p>Mates_Oliver 2026</p>
     <nav>
       <ul>
         <li><a href="https://www.instagram.com">Instagram</a></li>
@@ -68,6 +199,8 @@
       </ul>
     </nav>
   </footer>
+
+  <script src="carrito.js"></script>
 
 </body>
 </html>
