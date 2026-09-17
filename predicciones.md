@@ -70,3 +70,18 @@ Antes de hacerlo pienso que:
    en el CSS, no debería tocar el HTML.
 5. Si agrando las tarjetas van a entrar menos por fila, y en el celular se
    van a seguir apilando igual.
+
+# prediccion 17/9 
+
+Predicción: quiero agregar un poco mas de estilo.
+
+Antes de hacerlo pienso que:
+1. Debo corregir el footer que se mantenga en todas las pestañas siempre en la parte inferior en todas las vistas.
+
+2. un video en el head para dar un toque mas personalizado.
+
+3. voy a agregar vista de usuario y vista de programador
+
+4. agregar mas productos
+
+5. agregar mas etiquetas y buscador

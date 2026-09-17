@@ -10,7 +10,21 @@
 <body>
 
   <header>
-    <h1>Mates_Oliver</h1>
+
+    <div class="barra-superior">
+
+      <form class="buscador" action="#" method="get" role="search">
+        <label class="oculto" for="q">Buscar productos</label>
+        <input type="search" id="q" name="q" placeholder="Buscar mates, bombillas, termos...">
+        <button type="submit">Buscar</button>
+      </form>
+
+      <h1>Mates_Oliver</h1>
+
+      <a class="carrito-link" href="carrito.html">Carrito (0)</a>
+
+    </div>
+
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -19,7 +33,38 @@
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
+
   </header>
+
+  <section class="hero">
+    <video src="fotos/video-header.mp4" autoplay muted loop playsinline></video>
+    <div class="hero-texto">
+      <h2>Mates artesanales con tu escudo</h2>
+      <p>Calabaza, madera y alpaca. Personalizados a mano.</p>
+      <a class="boton" href="#mates-madera">Ver productos</a>
+    </div>
+  </section>
+
+  <section class="categorias">
+
+    <a class="categoria" href="#mates-madera">
+      <img src="fotos/mate-comando-claro.jpeg" alt="Mates">
+      <span>Mates</span>
+    </a>
+
+    <a class="categoria" href="#bombillas-alpaca">
+      <img src="fotos/bombilla-alpaca-ffee.jpeg" alt="Bombillas">
+      <span>Bombillas</span>
+    </a>
+
+    <a class="categoria" href="#termos">
+            <img src="fotos/termo-stanley-negro.jpeg" alt="Termos">
+      <span>Termos</span>
+    </a>
+
+  </section>
+
+  <p class="franja">Elegí, pagá y recibí tu pedido sin moverte de tu casa</p>
 
   <main>
 
@@ -42,67 +87,97 @@
       </section>
 
       <section id="mates-madera">
-        <h2>Mates de madera elegí el tuyo por $68000</h2>
+        <h2>Mates de madera, elegí el tuyo por $68.000</h2>
         <div class="grilla">
 
           <article>
-            <img src="fotos/mata-paracaidista-claro.jpeg" alt="Mata Paracaidista claro">
-            <h3>Mata Paracaidista claro</h3>
-            <p class="precio">Consultar precio</p>
+            <img src="fotos/mata-paracaidista-claro.jpeg" alt="Mate Paracaidista claro">
+            <h3>Mate Paracaidista claro</h3>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-asalto-aereo.jpeg" alt="Mate Asalto Aereo">
             <h3>Mate Asalto Aereo</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-cazador-de-montana-claro.jpeg" alt="Mate Cazador de Montaña claro">
             <h3>Mate Cazador de Montaña claro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-cazador-de-montana-negro.jpeg" alt="Mate Cazador de Montaña negro">
             <h3>Mate Cazador de Montaña negro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-cazador-de-monte-claro.jpeg" alt="Mate Cazador de Monte Claro">
             <h3>Mate Cazador de Monte Claro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-cazador-de-monte-negro.jpeg" alt="Mate Cazador de Monte Negro">
             <h3>Mate Cazador de Monte Negro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
             <h3>Mate Comando claro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-monte-claro.jpeg" alt="Mate Monte claro">
             <h3>Mate Monte claro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-monte-negro.jpeg" alt="Mate Monte negro">
             <h3>Mate Monte negro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/mate-paracaidista-oscuro.jpeg" alt="Mate Paracaidista Oscuro">
             <h3>Mate Paracaidista Oscuro</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$85.000</p>
+            <p class="precio">$68.000</p>
+            <p class="cuotas">3 cuotas sin interés de $22.666</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
         </div>
@@ -115,74 +190,157 @@
           <article>
             <img src="fotos/bombilla-alpaca-caballeria.jpeg" alt="Bombilla Alpaca Caballeria">
             <h3>Bombilla Alpaca Caballeria</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-comando.jpeg" alt="Bombilla Alpaca Comando">
             <h3>Bombilla Alpaca Comando</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-comando-2.jpeg" alt="Bombilla Alpaca Comando 2">
             <h3>Bombilla Alpaca Comando 2</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-ffee.jpeg" alt="Bombilla Alpaca FFEE">
             <h3>Bombilla Alpaca FFEE</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-intendencia.jpeg" alt="Bombilla Alpaca Intendencia">
             <h3>Bombilla Alpaca Intendencia</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-asalto-aereo.jpeg" alt="Bombilla Alpaca asalto aereo">
             <h3>Bombilla Alpaca asalto aereo</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-cazador-de-montana.jpeg" alt="Bombilla Alpaca cazador de Montaña">
             <h3>Bombilla Alpaca cazador de Montaña</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-cazador-patagonico.jpeg" alt="Bombilla Alpaca cazador patagonico">
             <h3>Bombilla Alpaca cazador patagonico</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-educacion-fisica.jpeg" alt="Bombilla Alpaca educacion fisica">
             <h3>Bombilla Alpaca educacion fisica</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
           <article>
             <img src="fotos/bombilla-alpaca-paracaidista.jpeg" alt="Bombilla Alpaca paracaidista">
             <h3>Bombilla Alpaca paracaidista</h3>
-            <p class="precio">Consultar precio</p>
+            <p class="precio-anterior">$65.000</p>
+            <p class="precio">$55.000</p>
+            <p class="cuotas">3 cuotas sin interés de $18.333</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
         </div>
       </section>
 
       <section id="yerbas">
-        <h2>Yerbas</h2>
-        <p class="proximamente">Próximamente.</p>
+        <h2>Elegí tu favorita</h2>
+        <div class="grilla">
+
+           <article>
+            <img src="fotos/yerba-canarias.jpeg" alt="Yerba Canarias">
+            <h3>Yerba Canarias</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+          <article>
+            <img src="fotos/yerba-verdeflor.jpeg" alt="Yerba Verdeflor">
+            <h3>Yerba Verdeflor</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+          <article>
+            <img src="fotos/yerba-rosamonte.jpeg" alt="Yerba Rosamonte">
+            <h3>Yerba Rosamonte</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+          <article>
+            <img src="fotos/yerba-playadito.jpeg" alt="Yerba Playadito">
+            <h3>Yerba Playadito</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+        </div>
       </section>
 
       <section id="termos">
-        <h2>Termos</h2>
-        <p class="proximamente">Próximamente.</p>
+        <h2>Los mejores termos del mercado</h2>
+        <div class="grilla">
+
+          <article>
+            <img src="fotos/termo-coleman.jpeg" alt="Termo Coleman de 1,2 litros">
+            <h3>Termo Coleman 1,2 L</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+          <article>
+            <img src="fotos/termo-stanley-negro.jpeg" alt="Termo Stanley negro de 1,2 litros">
+            <h3>Termo Stanley Negro 1,2 L</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+          <article>
+            <img src="fotos/termo-stanley-plateado.jpeg" alt="Termo Stanley plateado de 1,2 litros">
+            <h3>Termo Stanley 1,2 L</h3>
+            <p class="precio">Consultar precio</p>
+            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+          </article>
+
+        </div>
       </section>
 
     </div>
@@ -190,14 +348,38 @@
   </main>
 
   <footer>
-    <p>Mates_Oliver 2026</p>
-    <nav>
-      <ul>
-        <li><a href="https://www.instagram.com">Instagram</a></li>
-        <li><a href="https://www.facebook.com">Facebook</a></li>
-        <li><a href="https://wa.me/">WhatsApp</a></li>
-      </ul>
-    </nav>
+
+    <div class="pie-columnas">
+
+      <div>
+        <h3>Navegación</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="producto.html">Productos</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <p>matesoliver@gmail.com</p>
+        <p>Lunes a viernes de 9 a 18</p>
+      </div>
+
+      <div>
+        <h3>Seguinos</h3>
+        <ul>
+          <li><a href="https://www.instagram.com">Instagram</a></li>
+          <li><a href="https://www.facebook.com">Facebook</a></li>
+          <li><a href="https://wa.me/">WhatsApp</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p>Mates_Oliver 2026. Todos los derechos reservados.</p>
+
   </footer>
 
 </body>

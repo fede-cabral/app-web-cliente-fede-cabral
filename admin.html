@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración - Mates_Oliver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="barra-superior">
+      <h1>Mates_Oliver</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ver la tienda</a></li>
+        <li><a href="admin.html">Panel</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+
+      <h2>Panel de administración</h2>
+
+      <p class="aviso-panel">
+        Pantalla de gestión. Los datos se cargan a mano en el HTML;
+        el guardado automático queda para cuando haya servidor.
+      </p>
+
+      <h3>Agregar un producto</h3>
+
+      <form class="form-panel" action="#" method="post">
+
+        <div class="campo">
+          <label for="nombre">Nombre del producto</label>
+          <input type="text" id="nombre" name="nombre"
+                 placeholder="Mate Comando claro">
+        </div>
+
+        <div class="campo">
+          <label for="categoria">Categoría</label>
+          <select id="categoria" name="categoria">
+            <option>Mates de calabaza</option>
+            <option>Mates de madera</option>
+            <option>Bombillas de alpaca</option>
+            <option>Yerbas</option>
+            <option>Termos</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="precio-lista">Precio de lista</label>
+          <input type="number" id="precio-lista" name="precio-lista"
+                 placeholder="85000">
+        </div>
+
+        <div class="campo">
+          <label for="precio-final">Precio final</label>
+          <input type="number" id="precio-final" name="precio-final"
+                 placeholder="68000">
+        </div>
+
+        <div class="campo">
+          <label for="stock">Stock</label>
+          <input type="number" id="stock" name="stock" placeholder="5">
+        </div>
+
+        <div class="campo">
+          <label for="foto">Foto del producto</label>
+          <input type="file" id="foto" name="foto" accept="image/*">
+        </div>
+
+        <div class="campo ancho-total">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3"
+                    placeholder="Calabaza forrada en cuero, virola de alpaca."></textarea>
+        </div>
+
+        <div class="ancho-total">
+          <button type="submit">Guardar producto</button>
+        </div>
+
+      </form>
+
+      <h3>Productos cargados</h3>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mate Comando claro</td>
+              <td>Mates de madera</td>
+              <td>$68.000</td>
+              <td>5</td>
+              <td><button type="button" class="eliminar">Eliminar</button></td>
+            </tr>
+            <tr>
+              <td>Bombilla Alpaca Comando</td>
+              <td>Bombillas de alpaca</td>
+              <td>$12.000</td>
+              <td>12</td>
+              <td><button type="button" class="eliminar">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Mates_Oliver 2026 — Panel interno</p>
+  </footer>
+
+</body>
+</html>
