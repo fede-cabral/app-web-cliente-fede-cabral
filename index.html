@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -382,5 +382,10 @@
 
   </footer>
 
-</body>
+<script>
+  const headerEl = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    headerEl.classList.toggle('header-chico', window.scrollY > 40);
+  });
+</script>
 </html>

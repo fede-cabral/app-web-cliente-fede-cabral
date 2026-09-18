@@ -30,6 +30,32 @@ header {
   padding: 18px 32px 0;
   text-align: center;
   border-bottom: 3px solid var(--dorado);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ===== Header achicado al hacer scroll ===== */
+header.header-chico {
+  padding: 8px 32px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+header.header-chico h1 {
+  font-size: 26px;
+}
+
+header.header-chico .buscador input {
+  padding: 6px 10px;
+}
+
+header.header-chico .barra-superior {
+  margin-bottom: 10px;
+}
+
+header.header-chico nav ul {
+  padding-bottom: 10px;
 }
 
 /* ===== Barra superior: buscador, logo, carrito ===== */
