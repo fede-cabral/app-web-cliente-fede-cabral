@@ -98,7 +98,7 @@
         <h2>Mates de madera, elegí el tuyo por $68.000</h2>
         <div class="grilla">
 
-          <article>
+          <article data-especialidad="Paracaidista" data-color="Claro">
             <img src="fotos/mata-paracaidista-claro.jpeg" alt="Mate Paracaidista claro">
             <h3>Mate Paracaidista claro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -107,7 +107,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Asalto Aéreo" data-color="Natural">
             <img src="fotos/mate-asalto-aereo.jpeg" alt="Mate Asalto Aereo">
             <h3>Mate Asalto Aereo</h3>
             <p class="precio-anterior">$85.000</p>
@@ -116,7 +116,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Cazador de Montaña" data-color="Claro">
             <img src="fotos/mate-cazador-de-montana-claro.jpeg" alt="Mate Cazador de Montaña claro">
             <h3>Mate Cazador de Montaña claro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -125,7 +125,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Cazador de Montaña" data-color="Negro">
             <img src="fotos/mate-cazador-de-montana-negro.jpeg" alt="Mate Cazador de Montaña negro">
             <h3>Mate Cazador de Montaña negro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -134,7 +134,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Cazador de Monte" data-color="Claro">
             <img src="fotos/mate-cazador-de-monte-claro.jpeg" alt="Mate Cazador de Monte Claro">
             <h3>Mate Cazador de Monte Claro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -143,7 +143,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Cazador de Monte" data-color="Negro">
             <img src="fotos/mate-cazador-de-monte-negro.jpeg" alt="Mate Cazador de Monte Negro">
             <h3>Mate Cazador de Monte Negro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -152,7 +152,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Comando" data-color="Claro">
             <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
             <h3>Mate Comando claro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -161,7 +161,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Monte" data-color="Claro">
             <img src="fotos/mate-monte-claro.jpeg" alt="Mate Monte claro">
             <h3>Mate Monte claro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -170,7 +170,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Monte" data-color="Negro">
             <img src="fotos/mate-monte-negro.jpeg" alt="Mate Monte negro">
             <h3>Mate Monte negro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -179,7 +179,7 @@
             <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
           </article>
 
-          <article>
+          <article data-especialidad="Paracaidista" data-color="Oscuro">
             <img src="fotos/mate-paracaidista-oscuro.jpeg" alt="Mate Paracaidista Oscuro">
             <h3>Mate Paracaidista Oscuro</h3>
             <p class="precio-anterior">$85.000</p>
@@ -388,10 +388,67 @@
 
     <p>Mates_Oliver 2026. Todos los derechos reservados.</p>
 
-  </footer>
+    </footer>
+
+  <div class="fondo-ficha" id="fondo-ficha">
+    <div class="ficha">
+      <button class="cerrar-ficha" type="button" aria-label="Cerrar ficha">&times;</button>
+
+      <img class="ficha-foto" src="" alt="">
+      <h3 class="ficha-titulo"></h3>
+      <p class="ficha-subtitulo">Mate de Cedro + Virola de Alpaca + Escudo Personalizado</p>
+
+      <div class="ficha-grupos">
+
+        <div class="ficha-grupo">
+          <h4>Materiales</h4>
+          <ul>
+            <li>Madera de cedro</li>
+            <li>Virola de alpaca</li>
+            <li>Escudo metálico personalizado</li>
+          </ul>
+        </div>
+
+        <div class="ficha-grupo">
+          <h4>Terminación</h4>
+          <ul>
+            <li>Color: <span class="ficha-color"></span></li>
+            <li>Terminación artesanal</li>
+            <li>Vetas naturales de la madera</li>
+          </ul>
+        </div>
+
+        <div class="ficha-grupo">
+          <h4>Personalización</h4>
+          <ul>
+            <li>Escudo según especialidad</li>
+            <li>Especialidad: <span class="ficha-especialidad"></span></li>
+          </ul>
+        </div>
+
+        <div class="ficha-grupo">
+          <h4>Incluye</h4>
+          <ul>
+            <li>1 Mate</li>
+            <li>1 Virola</li>
+            <li>1 Escudo personalizado</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="ficha-precio"></p>
+      <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
+    </div>
+  </div>
 
 <script>
-  
+
+  const headerEl = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    headerEl.classList.toggle('header-chico', window.scrollY > 40);
+  });
+
   document.querySelectorAll('.grilla').forEach(function (grilla) {
     const marco = document.createElement('div');
     marco.className = 'marco-carrusel';
@@ -410,6 +467,41 @@
       });
       marco.appendChild(boton);
     });
+  });
+
+  const fondoFicha = document.getElementById('fondo-ficha');
+
+  document.querySelectorAll('.grilla article[data-especialidad]').forEach(function (tarjeta) {
+    tarjeta.addEventListener('click', function (evento) {
+      if (evento.target.closest('.boton-comprar')) return;
+
+      const nombre = tarjeta.querySelector('h3').textContent;
+
+      fondoFicha.querySelector('.ficha-foto').src = tarjeta.querySelector('img').src;
+      fondoFicha.querySelector('.ficha-foto').alt = nombre;
+      fondoFicha.querySelector('.ficha-titulo').textContent = nombre;
+      fondoFicha.querySelector('.ficha-precio').textContent = tarjeta.querySelector('.precio').textContent;
+      fondoFicha.querySelector('.ficha-color').textContent = tarjeta.dataset.color;
+      fondoFicha.querySelector('.ficha-especialidad').textContent = tarjeta.dataset.especialidad;
+
+      fondoFicha.classList.add('abierta');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function cerrarFicha() {
+    fondoFicha.classList.remove('abierta');
+    document.body.style.overflow = '';
+  }
+
+  fondoFicha.querySelector('.cerrar-ficha').addEventListener('click', cerrarFicha);
+
+  fondoFicha.addEventListener('click', function (evento) {
+    if (evento.target === fondoFicha) cerrarFicha();
+  });
+
+  document.addEventListener('keydown', function (evento) {
+    if (evento.key === 'Escape') cerrarFicha();
   });
 </script>
 </body>

@@ -920,3 +920,176 @@ aside {
 @media (prefers-reduced-motion: reduce) {
   .flecha { transition: none; }
 }
+/* ===== Clase 4 (parte 4): ficha de producto ===== */
+
+/* El fondo oscuro que tapa toda la pantalla.
+   position: fixed lo clava a la ventana: no se mueve aunque hagas scroll.
+   z-index 200 porque el header tiene 100 y tiene que quedar abajo. */
+.fondo-ficha {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+
+  background-color: rgba(20, 30, 22, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.fondo-ficha.abierta {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ficha {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+
+  background-color: var(--crema);
+  border-radius: 14px;
+  padding: 26px 28px 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+
+  transform: translateY(18px) scale(0.97);
+  transition: transform 0.25s ease;
+}
+
+.fondo-ficha.abierta .ficha {
+  transform: translateY(0) scale(1);
+}
+
+.cerrar-ficha {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cerrar-ficha:hover {
+  background-color: var(--verde-oscuro);
+  color: var(--dorado-claro);
+}
+
+.ficha-foto {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto 14px;
+}
+
+.ficha-titulo {
+  margin: 0 0 4px;
+  text-align: center;
+  color: var(--verde-oscuro);
+  font-size: 22px;
+}
+
+.ficha-subtitulo {
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--verde);
+  font-size: 14px;
+}
+
+.ficha-grupos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ficha-grupo {
+  flex: 1 1 240px;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.ficha-grupo h4 {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--dorado);
+  color: var(--verde-oscuro);
+  font-size: 15px;
+}
+
+.ficha-grupo ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ficha-precio {
+  margin: 20px 0 14px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+}
+
+.ficha .boton-comprar {
+  display: block;
+  text-align: center;
+}
+
+/* Que se note que la tarjeta se puede apretar */
+.grilla article[data-especialidad] {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo-ficha,
+  .ficha,
+  .cerrar-ficha {
+    transition: none;
+  }
+}
+/* Ajuste: achico la foto y los espacios para que el boton de comprar
+   entre sin tener que scrollear dentro del cartel */
+.ficha-foto {
+  max-width: 200px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.ficha-subtitulo {
+  margin-bottom: 14px;
+}
+
+.ficha-precio {
+  margin: 14px 0 10px;
+}
+
+/* La regla general de button (linea 457) le mete padding 12px 28px y eso
+   deformaba las flechas: quedaban ovaladas en vez de redondas */
+.flecha {
+  padding: 0;
+  box-sizing: border-box;
+}
