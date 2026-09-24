@@ -85,3 +85,46 @@ Antes de hacerlo pienso que:
 4. agregar mas productos
 
 5. agregar mas etiquetas y buscador
+
+
+# prediccion 24/9
+
+Predicción: sumar los efectos de la clase 4 (position, transiciones y
+animaciones) sin tocar la estructura que ya tengo.
+
+Antes de hacerlo pienso que:
+1. El cartel de OFERTA va a tener que ir con position absolute, y para que
+   se ubique adentro de la tarjeta el article va a necesitar position
+   relative. Si no, se me va a ir a la esquina de la pantalla.
+2. Ese cartel lo quiero solo en los productos que tienen precio tachado,
+   así que lo voy a resolver con CSS y no agregando 20 veces lo mismo en
+   el HTML.
+3. Para la rayita dorada abajo de los títulos no hace falta HTML nuevo:
+   con ::after puedo crear el elemento desde el CSS.
+4. La entrada de las tarjetas necesita @keyframes y no transition, porque
+   transition arranca con un hover y esto tiene que correr solo al cargar.
+5. Si cada tarjeta tuviera el mismo delay entrarían todas juntas, así que
+   voy a escalonarlas con animation-delay.
+6. Tengo que tener cuidado con animation-fill-mode: si dejo forwards, el
+   transform final de la animación me pisa el transform del hover y las
+   tarjetas dejan de levantarse.
+7. Todo esto es CSS agregado al final, no debería romper nada de lo
+   anterior.
+
+Antes de hacerlo pienso que:
+1. Hoy la grilla usa flex-wrap: wrap, que es justo lo que hace que las
+   tarjetas bajen de renglón. Para que queden en una sola fila tengo que
+   pasarlo a nowrap.
+2. Con nowrap solo no alcanza: si no le pongo overflow-x: auto las
+   tarjetas se van a salir de la caja y me van a romper el ancho de la
+   página.
+3. Las tarjetas no se tienen que achicar para entrar, así que el flex
+   tiene que dejar de crecer y encoger y quedar en un ancho fijo.
+4. Si la fila se puede deslizar, conviene que frene justo en el borde de
+   una tarjeta y no a la mitad. Para eso está scroll-snap.
+5. Al poner overflow en la caja, la tarjeta que se levanta en el hover me
+   la va a recortar arriba, así que voy a necesitar un poco de padding.
+6. Tengo que dejar la barrita de scroll a la vista y pintada, porque si no
+   el usuario no se da cuenta de que la fila se corre.
+7. Las flechas ‹ › que se puedan clickear no las puedo hacer solo con
+   CSS: eso lo voy a dejar para cuando agregue JavaScript.

@@ -679,3 +679,198 @@ footer {
     justify-self: center;
   }
 }
+
+/* ===== Clase 4: position, transiciones y animaciones ===== */
+
+/* 1. El hover de la tarjeta, con el scale que pide la clase */
+article:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* 2. Cartel de OFERTA sobre la foto */
+article {
+  position: relative;
+}
+
+article:has(.precio-anterior)::before {
+  content: "OFERTA";
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 2;
+  background-color: var(--rojo);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* 3. Rayita dorada abajo del titulo de cada categoria */
+.catalogo section h2 {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.catalogo section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--dorado);
+  transition: width 0.3s ease;
+}
+
+.catalogo section:hover h2::after {
+  width: 130px;
+}
+
+/* 4. Entrada de las tarjetas al cargar la pagina */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grilla article {
+  animation: aparecer 0.5s ease-out backwards;
+}
+
+.grilla article:nth-child(1)  { animation-delay: 0.05s; }
+.grilla article:nth-child(2)  { animation-delay: 0.10s; }
+.grilla article:nth-child(3)  { animation-delay: 0.15s; }
+.grilla article:nth-child(4)  { animation-delay: 0.20s; }
+.grilla article:nth-child(5)  { animation-delay: 0.25s; }
+.grilla article:nth-child(6)  { animation-delay: 0.30s; }
+.grilla article:nth-child(7)  { animation-delay: 0.35s; }
+.grilla article:nth-child(8)  { animation-delay: 0.40s; }
+.grilla article:nth-child(9)  { animation-delay: 0.45s; }
+.grilla article:nth-child(10) { animation-delay: 0.50s; }
+
+/* 5. Respetar a quien tiene el movimiento desactivado */
+@media (prefers-reduced-motion: reduce) {
+  .grilla article {
+    animation: none;
+  }
+
+  article,
+  .catalogo section h2::after {
+    transition: none;
+  }
+}
+
+/* ===== Clase 4 (parte 2): carrusel de productos ===== */
+
+.grilla {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 12px 4px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dorado) var(--verde-claro);
+}
+
+.grilla article {
+  flex: 0 0 280px;
+  max-width: 280px;
+  scroll-snap-align: start;
+}
+
+/* La barrita de abajo, pintada con los colores de la tienda */
+.grilla::-webkit-scrollbar {
+  height: 9px;
+}
+
+.grilla::-webkit-scrollbar-track {
+  background-color: var(--verde-claro);
+  border-radius: 999px;
+}
+
+.grilla::-webkit-scrollbar-thumb {
+  background-color: var(--dorado);
+  border-radius: 999px;
+}
+
+.grilla::-webkit-scrollbar-thumb:hover {
+  background-color: var(--verde);
+}
+
+/* ===== Filtros a la izquierda, productos al costado ===== */
+main {
+  flex-wrap: nowrap;
+  max-width: none;
+  margin: 0;
+  padding: 24px 20px;
+}
+
+aside {
+  flex: 0 0 240px;
+}
+
+.catalogo {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  main {
+    flex-wrap: wrap;
+  }
+
+  aside {
+    flex: 1 1 100%;
+  }
+}
+
+/* ===== Ícono del carrito ===== */
+.carrito-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+}
+
+.icono-carrito {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icono-carrito circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.carrito-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background-color: var(--dorado);
+  color: var(--verde-oscuro);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.carrito-link:hover .carrito-numero {
+  background-color: var(--verde-oscuro);
+  color: var(--dorado-claro);
+}
