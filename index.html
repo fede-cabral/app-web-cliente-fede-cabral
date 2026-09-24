@@ -443,7 +443,6 @@
   </div>
 
 <script>
-
   const headerEl = document.querySelector('header');
   window.addEventListener('scroll', () => {
     headerEl.classList.toggle('header-chico', window.scrollY > 40);
@@ -466,26 +465,6 @@
         grilla.scrollBy({ left: f[2], behavior: 'smooth' });
       });
       marco.appendChild(boton);
-    });
-  });
-
-  const fondoFicha = document.getElementById('fondo-ficha');
-
-  document.querySelectorAll('.grilla article[data-especialidad]').forEach(function (tarjeta) {
-    tarjeta.addEventListener('click', function (evento) {
-      if (evento.target.closest('.boton-comprar')) return;
-
-      const nombre = tarjeta.querySelector('h3').textContent;
-
-      fondoFicha.querySelector('.ficha-foto').src = tarjeta.querySelector('img').src;
-      fondoFicha.querySelector('.ficha-foto').alt = nombre;
-      fondoFicha.querySelector('.ficha-titulo').textContent = nombre;
-      fondoFicha.querySelector('.ficha-precio').textContent = tarjeta.querySelector('.precio').textContent;
-      fondoFicha.querySelector('.ficha-color').textContent = tarjeta.dataset.color;
-      fondoFicha.querySelector('.ficha-especialidad').textContent = tarjeta.dataset.especialidad;
-
-      fondoFicha.classList.add('abierta');
-      document.body.style.overflow = 'hidden';
     });
   });
 
