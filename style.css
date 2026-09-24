@@ -769,7 +769,7 @@ article:has(.precio-anterior)::before {
   }
 }
 
-/* ===== Clase 4 (parte 2): carrusel de productos ===== */
+/* =====  carrusel de productos ===== */
 
 .grilla {
   flex-wrap: nowrap;
@@ -873,4 +873,50 @@ aside {
 .carrito-link:hover .carrito-numero {
   background-color: var(--verde-oscuro);
   color: var(--dorado-claro);
+}
+/* ===== Clase 4 (parte 3): flechas del carrusel ===== */
+
+/* El marco es el que le da el "punto de referencia" a las flechas.
+   Sin position: relative acá, las flechas se irían al borde de la pantalla. */
+.marco-carrusel {
+  position: relative;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--verde-claro);
+  border-radius: 50%;
+
+  background-color: #ffffff;
+  color: var(--verde-oscuro);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.flecha:hover {
+  background-color: var(--verde-oscuro);
+  color: var(--dorado-claro);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.flecha-izq { left: -10px; }
+.flecha-der { right: -10px; }
+
+/* En pantallas chicas no hacen falta: ahí se arrastra con el dedo */
+@media (max-width: 560px) {
+  .flecha { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flecha { transition: none; }
 }

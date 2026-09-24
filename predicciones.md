@@ -110,21 +110,22 @@ Antes de hacerlo pienso que:
    tarjetas dejan de levantarse.
 7. Todo esto es CSS agregado al final, no debería romper nada de lo
    anterior.
+8. voy a crear la pestaña de administrador para que el mismo pueda cargar 
+   sus cosas.
+   
+## Predicción 1/10 — Flechas del carrusel
 
-Antes de hacerlo pienso que:
-1. Hoy la grilla usa flex-wrap: wrap, que es justo lo que hace que las
-   tarjetas bajen de renglón. Para que queden en una sola fila tengo que
-   pasarlo a nowrap.
-2. Con nowrap solo no alcanza: si no le pongo overflow-x: auto las
-   tarjetas se van a salir de la caja y me van a romper el ancho de la
-   página.
-3. Las tarjetas no se tienen que achicar para entrar, así que el flex
-   tiene que dejar de crecer y encoger y quedar en un ancho fijo.
-4. Si la fila se puede deslizar, conviene que frene justo en el borde de
-   una tarjeta y no a la mitad. Para eso está scroll-snap.
-5. Al poner overflow en la caja, la tarjeta que se levanta en el hover me
-   la va a recortar arriba, así que voy a necesitar un poco de padding.
-6. Tengo que dejar la barrita de scroll a la vista y pintada, porque si no
-   el usuario no se da cuenta de que la fila se corre.
-7. Las flechas ‹ › que se puedan clickear no las puedo hacer solo con
-   CSS: eso lo voy a dejar para cuando agregue JavaScript.
+Voy a agregar dos botones ‹ y › a cada carrusel de productos.
+
+**Qué creo que va a pasar:** los botones van a aparecer flotando encima
+del carrusel, uno a cada lado, centrados verticalmente. Al hacer clic
+en › el carrusel se va a correr 300px hacia la derecha (el ancho de
+una tarjeta más el espacio), suave, no de golpe.
+
+**Qué creo que puede salir mal:** que los botones tapen la primera y la
+última tarjeta. Y que si los pongo con HTML tenga que copiar y pegar el
+mismo código 4 veces, una por cada carrusel.
+
+**Por qué necesito JavaScript:** el CSS puede hacer que algo se vea y se
+mueva, pero no puede reaccionar a un clic y correr una barra de scroll.
+Eso solo lo hace JS con scrollBy().

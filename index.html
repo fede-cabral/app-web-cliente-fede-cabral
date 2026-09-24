@@ -391,9 +391,26 @@
   </footer>
 
 <script>
-  const headerEl = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    headerEl.classList.toggle('header-chico', window.scrollY > 40);
+  
+  document.querySelectorAll('.grilla').forEach(function (grilla) {
+    const marco = document.createElement('div');
+    marco.className = 'marco-carrusel';
+    grilla.parentNode.insertBefore(marco, grilla);
+    marco.appendChild(grilla);
+
+    [['izq', '\u2039', -300, 'Ver productos anteriores'],
+     ['der', '\u203A',  300, 'Ver más productos']].forEach(function (f) {
+      const boton = document.createElement('button');
+      boton.type = 'button';
+      boton.className = 'flecha flecha-' + f[0];
+      boton.textContent = f[1];
+      boton.setAttribute('aria-label', f[3]);
+      boton.addEventListener('click', function () {
+        grilla.scrollBy({ left: f[2], behavior: 'smooth' });
+      });
+      marco.appendChild(boton);
+    });
   });
 </script>
+</body>
 </html>
