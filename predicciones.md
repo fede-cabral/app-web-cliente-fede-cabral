@@ -129,3 +129,21 @@ mismo código 4 veces, una por cada carrusel.
 **Por qué necesito JavaScript:** el CSS puede hacer que algo se vea y se
 mueva, pero no puede reaccionar a un clic y correr una barra de scroll.
 Eso solo lo hace JS con scrollBy().
+
+## Predicción 3/10 — Página de preguntas frecuentes
+
+Voy a agregar una página nueva, faq.html, como última pestaña del menú.
+
+la página va a salir con el mismo header, el mismo menú y el mismo pie 
+que las otras cuatro, porque uso la mismaestructura y el mismo style.css. 
+Las preguntas van a estar plegadas y se van a abrir al hacerles clic.
+
+ con la etiqueta <details> de HTML. Abre y cierra sola, sin JavaScript. 
+ El navegador le pone el atributo "open" alabrirla y yo lo uso en el CSS
+  con el selector details[open] para cambiar
+el + por un −.
+
+**Qué creo que puede salir mal:** que me olvide de agregar el enlace FAQ
+en alguna de las otras cuatro páginas y quede un menú distinto en cada
+una. Son ocho lugares: el menú de arriba y el pie de página de index,
+producto, carrito y contacto.
