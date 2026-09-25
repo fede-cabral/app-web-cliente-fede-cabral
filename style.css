@@ -1192,3 +1192,101 @@ aside {
     transition: none;
   }
 }
+/* ── Visor de imagen ampliada ─────────────────────────────
+   Se abre cuando tocás la foto de una ficha.
+   z-index 300 porque la ficha tiene 200 y esto va por encima. */
+.fondo-visor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 300;
+
+  background-color: rgba(0, 0, 0, 0.88);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 20px;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.fondo-visor.abierta {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* max-height en vh para que una foto alta no se salga de la pantalla.
+   object-fit: contain la muestra entera, sin recortar nada. */
+.visor-foto {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.cerrar-visor {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: var(--crema);
+  color: var(--verde-oscuro);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.cerrar-visor:hover {
+  background-color: var(--dorado-claro);
+}
+
+/* zoom-in avisa al usuario que la foto se puede agrandar. */
+.ficha-foto {
+  cursor: zoom-in;
+}
+/* ── Filtros que acompañan el scroll ──────────────────────
+   position: sticky hace que el bloque se "pegue" cuando llega
+   al borde de arriba, en vez de irse para arriba con la pagina.
+   El top tiene que ser la altura del header, si no lo tapa. */
+:root {
+  --alto-header: 147px;
+}
+
+/* Abajo de 700px el header se apila y pasa a medir el doble. */
+@media (max-width: 700px) {
+  :root {
+    --alto-header: 266px;
+  }
+}
+
+aside {
+  position: sticky;
+  top: calc(var(--alto-header) + 16px);
+
+  /* Si la pantalla es baja y los filtros no entran,
+     que tengan su propio scroll en vez de cortarse. */
+  max-height: calc(100vh - var(--alto-header) - 32px);
+  overflow-y: auto;
+}
+
+/* Abajo de 560px los filtros van arriba a todo lo ancho,
+   asi que pegarlos no tiene sentido. */
+@media (max-width: 560px) {
+  aside {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
