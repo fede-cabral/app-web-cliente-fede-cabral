@@ -147,3 +147,66 @@ el + por un −.
 en alguna de las otras cuatro páginas y quede un menú distinto en cada
 una. Son ocho lugares: el menú de arriba y el pie de página de index,
 producto, carrito y contacto.
+
+Voy a hacer tres cosas: darle ficha propia a las bombillas, que al tocar
+la foto de una ficha se abra la imagen en grande, y que los filtros de la
+izquierda acompañen el scroll en vez de quedarse arriba.
+
+**Qué creo que va a pasar:** las bombillas van a necesitar su propia ficha
+porque los datos son otros (alpaca, cabezal, filtro) y no los del mate
+(cedro, virola). Como el CSS de la ficha está hecho con clases y no con
+id, si le pongo las mismas clases a la ficha nueva el estilo lo va a
+agarrar solo y no voy a tener que escribir CSS.
+
+**Qué creo que puede salir mal:** que el selector que abre la ficha de los
+mates agarre también las bombillas, porque las dos van a tener el mismo
+data-especialidad. Voy a tener que acotarlo con el id de la sección.
+
+Con el visor: no tengo la foto grande de todos los productos. Los que no
+la tengan van a mostrar la imagen rota. Tendría que resolver que en ese
+caso muestre la del catálogo.
+
+Con los filtros: si los pego arriba con position sticky y pongo top: 0, el
+header me los va a tapar, porque el header también es sticky. El top tiene
+que ser la altura del header. Y en el celular, donde los filtros van
+arriba a todo lo ancho, pegarlos no tiene sentido.
+
+**Por qué necesito JavaScript:** el CSS puede mostrar y esconder cosas con
+:hover, pero no puede cambiar el src de una imagen según cuál tarjeta
+toqué. Eso necesita JS. Los filtros pegados, en cambio, son CSS puro:
+position: sticky no lleva nada de JS.
+
+**Lo que voy a borrar:** producto.html, porque quedó redundante. Entre el
+video, las categorías de abajo del video y los filtros, ya se llega a
+todos los productos. También sale "Productos" del menú.
+Voy a hacer tres cosas: darle ficha propia a las bombillas, que al tocar
+la foto de una ficha se abra la imagen en grande, y que los filtros de la
+izquierda acompañen el scroll en vez de quedarse arriba.
+
+**Qué creo que va a pasar:** las bombillas van a necesitar su propia ficha
+porque los datos son otros (alpaca, cabezal, filtro) y no los del mate
+(cedro, virola). Como el CSS de la ficha está hecho con clases y no con
+id, si le pongo las mismas clases a la ficha nueva el estilo lo va a
+agarrar solo y no voy a tener que escribir CSS.
+
+**Qué creo que puede salir mal:** que el selector que abre la ficha de los
+mates agarre también las bombillas, porque las dos van a tener el mismo
+data-especialidad. Voy a tener que acotarlo con el id de la sección.
+
+Con el visor: no tengo la foto grande de todos los productos. Los que no
+la tengan van a mostrar la imagen rota. Tendría que resolver que en ese
+caso muestre la del catálogo.
+
+Con los filtros: si los pego arriba con position sticky y pongo top: 0, el
+header me los va a tapar, porque el header también es sticky. El top tiene
+que ser la altura del header. Y en el celular, donde los filtros van
+arriba a todo lo ancho, pegarlos no tiene sentido.
+
+**Por qué necesito JavaScript:** el CSS puede mostrar y esconder cosas con
+:hover, pero no puede cambiar el src de una imagen según cuál tarjeta
+toqué. Eso necesita JS. Los filtros pegados, en cambio, son CSS puro:
+position: sticky no lleva nada de JS.
+
+**Lo que voy a borrar:** producto.html, porque quedó redundante. Entre el
+video, las categorías de abajo del video y los filtros, ya se llega a
+todos los productos. También sale "Productos" del menú.
