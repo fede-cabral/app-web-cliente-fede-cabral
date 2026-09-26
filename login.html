@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Mates_Oliver</title>
+  <title>Ingresar - Mates_Oliver</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -46,33 +46,39 @@
     </div>
 
   </header>
+<main>
+    <section class="caja-sesion">
 
-  <main>
-    <section>
-      <h2>Contacto</h2>
-      <p>Escribinos y te respondemos a la brevedad.</p>
+      <h2>Ingresar</h2>
 
-      <form action="#" method="post">
-        <p>
-          <label for="nombre">Nombre</label><br>
-          <input type="text" id="nombre" name="nombre" required>
-        </p>
-        <p>
-          <label for="email">Correo electrónico</label><br>
-          <input type="email" id="email" name="email" required>
-        </p>
-        <p>
-          <label for="mensaje">Mensaje</label><br>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        </p>
-        <p>
-          <button type="submit">Enviar</button>
-        </p>
+      <p class="aviso-sesion">
+        Pantalla de ejemplo. Todavía no valida nada: el ingreso real
+        queda para cuando haya servidor.
+      </p>
+
+      <form class="form-sesion" action="#" method="post">
+
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="nombre@correo.com">
+        </div>
+
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input type="password" id="clave" name="clave" placeholder="Tu contraseña">
+        </div>
+
+        <button type="submit">Entrar</button>
+
       </form>
+
+      <p class="pie-sesion">
+        ¿No tenés cuenta? <a href="#">Creá una</a>
+      </p>
+
     </section>
   </main>
-
-  <footer>
+    <footer>
 
   <div class="pie-columnas">
 
@@ -106,5 +112,14 @@
   <p>Mates_Oliver 2026. Todos los derechos reservados.</p>
 
 </footer>
+  <script>
+    // Todavia no hay servidor: frenamos el envio y avisamos.
+    document.querySelector('.form-sesion').addEventListener('submit', function (evento) {
+      evento.preventDefault();
+      document.querySelector('.aviso-sesion').textContent =
+        'El ingreso todavía no funciona. Falta conectar el servidor.';
+    });
+  </script>
+
 </body>
 </html>

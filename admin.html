@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de administración - Mates_Oliver</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
+
     <div class="barra-superior">
-      <h1>Mates_Oliver</h1>
+
+      <a class="marca" href="index.html">
+        <h1>Mates_Oliver</h1>
+        <span class="marca-lema">Panel de administración</span>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Ver la tienda</a></li>
+          <li><a href="admin.html">Panel</a></li>
+        </ul>
+      </nav>
+
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Ver la tienda</a></li>
-        <li><a href="admin.html">Panel</a></li>
-      </ul>
-    </nav>
+
   </header>
 
   <main>
@@ -126,12 +134,4 @@
   </footer>
 
 </body>
-
-<script>
-  const headerEl = document.querySelector('header');
-  window.addEventListener('scroll', function () {
-    headerEl.classList.toggle('header-chico', window.scrollY > 40);
-  });
-</script>
-
 </html>
