@@ -1293,3 +1293,186 @@ nav a:hover::after {
   font-size: 14px;
   margin-bottom: 0;
 }
+/* ===== Carrito: lista de productos + caja de resumen ===== */
+
+.carrito {
+  flex: 1 1 100%;
+}
+
+.carrito-cantidad {
+  margin-top: -8px;
+  color: var(--verde);
+  font-size: 14px;
+}
+
+/* La lista se estira con lo que sobra; el resumen mide siempre 300px.
+   align-items: start evita que la caja se estire hasta abajo de todo. */
+.carrito-columnas {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: start;
+  gap: 24px;
+}
+
+.carrito-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Foto | datos | precio */
+.item-carrito {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  align-items: center;
+  gap: 16px;
+
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.item-carrito img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-datos h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.item-detalle {
+  margin: 0 0 12px;
+  color: var(--verde);
+  font-size: 13px;
+}
+
+/* overflow: hidden recorta las esquinas de los botones contra el borde
+   redondeado, y los tres quedan como una sola pieza. */
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--verde-claro);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cantidad button {
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  border: none;
+  border-radius: 0;
+  padding: 4px 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.cantidad button:hover {
+  background-color: var(--dorado-claro);
+}
+
+.cantidad span {
+  min-width: 38px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.item-precio {
+  text-align: right;
+}
+
+.item-precio .precio {
+  margin: 0 0 10px;
+}
+
+/* ===== Caja de resumen ===== */
+
+/* El mismo truco de los filtros: acompaña el scroll sin taparse con el header. */
+.resumen {
+  position: sticky;
+  top: calc(var(--alto-header) + 16px);
+
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(35, 77, 51, 0.07);
+}
+
+.resumen h3 {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+
+/* space-between manda el nombre a la izquierda y el numero a la derecha. */
+.linea {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.gratis {
+  color: var(--verde);
+  font-weight: bold;
+}
+
+.linea.total {
+  border-top: 1px solid var(--verde-claro);
+  margin-top: 14px;
+  padding-top: 14px;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+}
+
+.resumen .cuotas {
+  margin: 0 0 16px;
+}
+
+.resumen .boton-comprar {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.seguir {
+  display: block;
+  text-align: center;
+  color: var(--verde-oscuro);
+  font-size: 14px;
+}
+
+/* En pantallas chicas el resumen baja y el precio pasa debajo del producto. */
+@media (max-width: 760px) {
+  .carrito-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen {
+    position: static;
+  }
+
+  .item-carrito {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .item-carrito img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .item-precio {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .item-precio .precio {
+    margin: 0;
+  }
+}

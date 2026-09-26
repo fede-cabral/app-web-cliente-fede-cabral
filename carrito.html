@@ -48,39 +48,74 @@
   </header>
 
   <main>
-    <section>
-      <h2>Tu carrito</h2>
+    <section class="carrito">
 
-      <div class="tabla-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mate imperial de calabaza</td>
-            <td>1</td>
-            <td>$60000</td>
-            <td><button type="button" class="eliminar">Eliminar</button></td>
-          </tr>
-          <tr>
-            <td>Bombilla de alpaca</td>
-            <td>1</td>
-            <td>$12000</td>
-            <td><button type="button" class="eliminar">Eliminar</button></td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Tu carrito</h2>
+      <p class="carrito-cantidad">2 productos</p>
+
+      <div class="carrito-columnas">
+
+        <div class="carrito-lista">
+
+          <article class="item-carrito">
+            <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
+
+            <div class="item-datos">
+              <h3>Mate Comando claro</h3>
+              <p class="item-detalle">Calabaza forrada en cuero · Virola de alpaca</p>
+
+              <div class="cantidad">
+                <button type="button" aria-label="Quitar uno">−</button>
+                <span>1</span>
+                <button type="button" aria-label="Agregar uno">+</button>
+              </div>
+            </div>
+
+            <div class="item-precio">
+              <p class="precio">$68.000</p>
+              <button type="button" class="eliminar">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="item-carrito">
+            <img src="fotos/bombilla-alpaca-paracaidista.jpeg" alt="Bombilla Alpaca paracaidista">
+
+            <div class="item-datos">
+              <h3>Bombilla Alpaca paracaidista</h3>
+              <p class="item-detalle">Alpaca pulida · Escudo de paracaidista</p>
+
+              <div class="cantidad">
+                <button type="button" aria-label="Quitar uno">−</button>
+                <span>1</span>
+                <button type="button" aria-label="Agregar uno">+</button>
+              </div>
+            </div>
+
+            <div class="item-precio">
+              <p class="precio">$55.000</p>
+              <button type="button" class="eliminar">Eliminar</button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="resumen">
+
+          <h3>Resumen de compra</h3>
+
+          <p class="linea"><span>Subtotal</span><span>$123.000</span></p>
+          <p class="linea"><span>Envío</span><span class="gratis">Gratis</span></p>
+          <p class="linea total"><span>Total</span><span>$123.000</span></p>
+
+          <p class="cuotas">3 cuotas sin interés de $41.000</p>
+
+          <button type="button" class="boton-comprar">Finalizar compra</button>
+          <a class="seguir" href="index.html">Seguir comprando</a>
+
+        </div>
+
       </div>
 
-      <p>Total: $72000</p>
-
-      <p><a href="index.html">Seguir comprando</a></p>
     </section>
   </main>
 
