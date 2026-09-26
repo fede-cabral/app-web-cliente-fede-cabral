@@ -33,62 +33,13 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: padding 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* ===== Barra superior: buscador, logo, carrito ===== */
-.barra-superior {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-  max-width: 1200px;
-  margin: 0 auto 18px;
-}
-
 .barra-superior h1 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 700;
   color: var(--dorado-claro);
-  letter-spacing: 3px;
-  order: 2;
-  flex: 1 1 auto;
-  text-align: center;
-  font-size: 38px;
-  margin: 0;
 }
-
-.buscador {
-  order: 1;
-  flex: 0 1 280px;
-  display: flex;
-}
-
-.buscador input {
-  flex: 1;
-  min-width: 0;
-  max-width: none;
-  padding: 9px 12px;
-  border: 1px solid var(--verde);
-  border-radius: 6px 0 0 6px;
-  font-family: inherit;
-  font-size: 14px;
-}
-
-.buscador button {
-  padding: 9px 16px;
-  font-size: 14px;
-  border-radius: 0 6px 6px 0;
-  background-color: var(--dorado);
-  color: var(--verde-oscuro);
-}
-
-.buscador button:hover {
-  background-color: var(--dorado-claro);
-}
-
 .carrito-link {
-  order: 3;
   flex: 0 0 auto;
   color: #ffffff;
   text-decoration: none;
@@ -253,16 +204,12 @@ html {
 
 main {
   display: flex;
-  flex-wrap: wrap;
   gap: 32px;
   padding: 32px;
   align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 aside {
-  flex: 1 1 280px;
   min-width: 0;
   background-color: #ffffff;
   border: 1px solid var(--verde-claro);
@@ -361,7 +308,6 @@ article {
 article:hover {
   border-color: var(--dorado-claro);
   box-shadow: 0 6px 16px rgba(35, 77, 51, 0.14);
-  transform: translateY(-3px);
 }
 
 article h3 {
@@ -590,17 +536,6 @@ footer {
     font-size: 32px;
     letter-spacing: 1px;
   }
-
-  .buscador {
-    order: 2;
-    flex: 1 1 100%;
-  }
-
-  .carrito-link {
-    order: 3;
-    margin: 0 auto;
-  }
-
   nav ul {
     gap: 16px;
   }
@@ -634,49 +569,6 @@ footer {
   .eliminar {
     padding: 6px 10px;
     font-size: 13px;
-  }
-}
-
-/* ===== Ajuste: buscador a la izquierda, nombre al centro ===== */
-.barra-superior {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 16px;
-  max-width: none;
-  margin: 0 0 18px 0;
-}
-
-.buscador {
-  justify-self: start;
-  width: 280px;
-  max-width: 100%;
-}
-
-.barra-superior h1 {
-  justify-self: center;
-  margin: 0;
-  font-size: 40px;
-}
-
-.carrito-link {
-  justify-self: end;
-}
-
-@media (max-width: 700px) {
-  .barra-superior {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 12px;
-  }
-
-  .buscador {
-    justify-self: center;
-    width: 100%;
-  }
-
-  .carrito-link {
-    justify-self: center;
   }
 }
 
@@ -874,52 +766,7 @@ aside {
   background-color: var(--verde-oscuro);
   color: var(--dorado-claro);
 }
-/* ===== Clase 4 (parte 3): flechas del carrusel ===== */
 
-/* El marco es el que le da el "punto de referencia" a las flechas.
-   Sin position: relative acá, las flechas se irían al borde de la pantalla. */
-.marco-carrusel {
-  position: relative;
-}
-
-.flecha {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--verde-claro);
-  border-radius: 50%;
-
-  background-color: #ffffff;
-  color: var(--verde-oscuro);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
-}
-
-.flecha:hover {
-  background-color: var(--verde-oscuro);
-  color: var(--dorado-claro);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.flecha-izq { left: -10px; }
-.flecha-der { right: -10px; }
-
-/* En pantallas chicas no hacen falta: ahí se arrastra con el dedo */
-@media (max-width: 560px) {
-  .flecha { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .flecha { transition: none; }
-}
 /* ===== Clase 4 (parte 4): ficha de producto ===== */
 
 /* El fondo oscuro que tapa toda la pantalla.
@@ -1072,28 +919,6 @@ aside {
   }
 }
 /* Ajuste: achico la foto y los espacios para que el boton de comprar
-   entre sin tener que scrollear dentro del cartel */
-.ficha-foto {
-  max-width: 200px;
-  height: 150px;
-  margin-bottom: 10px;
-}
-
-.ficha-subtitulo {
-  margin-bottom: 14px;
-}
-
-.ficha-precio {
-  margin: 14px 0 10px;
-}
-
-/* La regla general de button (linea 457) le mete padding 12px 28px y eso
-   deformaba las flechas: quedaban ovaladas en vez de redondas */
-.flecha {
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* ===== Página de preguntas frecuentes ===== */
 .faq-contenido {
   max-width: 820px;
@@ -1261,13 +1086,13 @@ aside {
    al borde de arriba, en vez de irse para arriba con la pagina.
    El top tiene que ser la altura del header, si no lo tapa. */
 :root {
-  --alto-header: 147px;
+  --alto-header: 78px;
 }
 
 /* Abajo de 700px el header se apila y pasa a medir el doble. */
 @media (max-width: 700px) {
   :root {
-    --alto-header: 266px;
+    --alto-header: 166px;
   }
 }
 
@@ -1288,5 +1113,366 @@ aside {
     position: static;
     max-height: none;
     overflow-y: visible;
+  }
+}
+
+/* ===== Header prolijo: marca, menu y acciones en una sola fila ===== */
+
+header {
+  padding: 14px 32px;
+}
+
+/* Tres columnas: la marca a la izquierda, el menu justo en el centro de la
+   pagina y las acciones a la derecha. Las columnas 1fr de los costados miden
+   lo mismo, asi que el menu queda centrado sin importar cuanto ocupa la marca. */
+.barra-superior {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  max-width: none;
+  margin: 0;
+}
+
+.marca {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+/* Ojo con esto: la regla vieja de .barra-superior h1 le pone order: 2,
+   que servia cuando el h1 competia con el buscador y el carrito.
+   Adentro de .marca ese order lo mandaria abajo del lema, asi que lo reseteamos. */
+.marca h1 {
+  order: 0;
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.marca-lema {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.65;
+}
+
+header nav {
+  justify-self: center;
+}
+
+/* El menu ya no es una fila aparte, asi que no necesita el espacio de abajo. */
+header nav ul {
+  padding: 0;
+  gap: 26px;
+}
+
+.acciones {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.boton-sesion {
+  background-color: var(--dorado-claro);
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.boton-sesion:hover {
+  background-color: #ffffff;
+}
+
+/* Nav: la linea dorada crece desde el centro hacia los costados */
+nav a {
+  position: relative;
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13.5px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--dorado);
+  transition: left 0.25s ease, width 0.25s ease;
+}
+
+nav a:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+/* En pantallas chicas las tres piezas se apilan y quedan centradas. */
+@media (max-width: 700px) {
+  .barra-superior {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 12px;
+  }
+
+  .marca,
+  header nav,
+  .acciones {
+    justify-self: center;
+  }
+
+  .marca {
+    align-items: center;
+  }
+
+  .marca h1 {
+    text-align: center;
+  }
+}
+
+/* ===== Pantalla de ingreso ===== */
+.caja-sesion {
+  flex: 1 1 100%;
+  max-width: 420px;
+  margin: 0 auto;
+
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.caja-sesion h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.aviso-sesion {
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.form-sesion .campo {
+  margin-bottom: 16px;
+}
+
+.form-sesion label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-sesion input {
+  max-width: none;
+}
+
+.form-sesion button {
+  width: 100%;
+}
+
+.pie-sesion {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+/* ===== Carrito: lista de productos + caja de resumen ===== */
+
+.carrito {
+  flex: 1 1 100%;
+}
+
+.carrito-cantidad {
+  margin-top: -8px;
+  color: var(--verde);
+  font-size: 14px;
+}
+
+/* La lista se estira con lo que sobra; el resumen mide siempre 300px.
+   align-items: start evita que la caja se estire hasta abajo de todo. */
+.carrito-columnas {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: start;
+  gap: 24px;
+}
+
+.carrito-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Foto | datos | precio */
+.item-carrito {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  align-items: center;
+  gap: 16px;
+
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.item-carrito img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-datos h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.item-detalle {
+  margin: 0 0 12px;
+  color: var(--verde);
+  font-size: 13px;
+}
+
+/* overflow: hidden recorta las esquinas de los botones contra el borde
+   redondeado, y los tres quedan como una sola pieza. */
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--verde-claro);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cantidad button {
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  border: none;
+  border-radius: 0;
+  padding: 4px 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.cantidad button:hover {
+  background-color: var(--dorado-claro);
+}
+
+.cantidad span {
+  min-width: 38px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.item-precio {
+  text-align: right;
+}
+
+.item-precio .precio {
+  margin: 0 0 10px;
+}
+
+/* ===== Caja de resumen ===== */
+
+/* El mismo truco de los filtros: acompaña el scroll sin taparse con el header. */
+.resumen {
+  position: sticky;
+  top: calc(var(--alto-header) + 16px);
+
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(35, 77, 51, 0.07);
+}
+
+.resumen h3 {
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+
+/* space-between manda el nombre a la izquierda y el numero a la derecha. */
+.linea {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.gratis {
+  color: var(--verde);
+  font-weight: bold;
+}
+
+.linea.total {
+  border-top: 1px solid var(--verde-claro);
+  margin-top: 14px;
+  padding-top: 14px;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+}
+
+.resumen .cuotas {
+  margin: 0 0 16px;
+}
+
+.resumen .boton-comprar {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.seguir {
+  display: block;
+  text-align: center;
+  color: var(--verde-oscuro);
+  font-size: 14px;
+}
+
+/* En pantallas chicas el resumen baja y el precio pasa debajo del producto. */
+@media (max-width: 760px) {
+  .carrito-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen {
+    position: static;
+  }
+
+  .item-carrito {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .item-carrito img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .item-precio {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .item-precio .precio {
+    margin: 0;
   }
 }
