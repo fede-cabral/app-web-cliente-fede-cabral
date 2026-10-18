@@ -41,52 +41,63 @@
 
       <h3>Agregar un producto</h3>
 
-      <form class="form-panel" action="#" method="post">
+            <form class="form-panel" action="#" method="post">
 
-        <div class="campo">
-          <label for="nombre">Nombre del producto</label>
-          <input type="text" id="nombre" name="nombre"
-                 placeholder="Mate Comando claro">
-        </div>
+        <fieldset class="grupo-campos">
+          <legend>Datos del producto</legend>
 
-        <div class="campo">
-          <label for="categoria">Categoría</label>
-          <select id="categoria" name="categoria">
-            <option>Mates de calabaza</option>
-            <option>Mates de madera</option>
-            <option>Bombillas de alpaca</option>
-            <option>Yerbas</option>
-            <option>Termos</option>
-          </select>
-        </div>
+          <div class="campo">
+            <label for="producto-nombre">Nombre del producto</label>
+            <input type="text" id="producto-nombre" name="nombre"
+                   autocomplete="off" placeholder="Mate Comando claro">
+          </div>
 
-        <div class="campo">
-          <label for="precio-lista">Precio de lista</label>
-          <input type="number" id="precio-lista" name="precio-lista"
-                 placeholder="85000">
-        </div>
+          <div class="campo">
+            <label for="producto-categoria">Categoría</label>
+            <select id="producto-categoria" name="categoria">
+              <option value="mates-calabaza">Mates de calabaza</option>
+              <option value="mates-madera">Mates de madera</option>
+              <option value="bombillas-alpaca">Bombillas de alpaca</option>
+              <option value="yerbas">Yerbas</option>
+              <option value="termos">Termos</option>
+            </select>
+          </div>
 
-        <div class="campo">
-          <label for="precio-final">Precio final</label>
-          <input type="number" id="precio-final" name="precio-final"
-                 placeholder="68000">
-        </div>
+          <div class="campo ancho-total">
+            <label for="producto-descripcion">Descripción</label>
+            <textarea id="producto-descripcion" name="descripcion" rows="3"
+                      placeholder="Calabaza forrada en cuero, virola de alpaca."></textarea>
+          </div>
 
-        <div class="campo">
-          <label for="stock">Stock</label>
-          <input type="number" id="stock" name="stock" placeholder="5">
-        </div>
+        </fieldset>
 
-        <div class="campo">
-          <label for="foto">Foto del producto</label>
-          <input type="file" id="foto" name="foto" accept="image/*">
-        </div>
+        <fieldset class="grupo-campos">
+          <legend>Precios, stock y foto</legend>
 
-        <div class="campo ancho-total">
-          <label for="descripcion">Descripción</label>
-          <textarea id="descripcion" name="descripcion" rows="3"
-                    placeholder="Calabaza forrada en cuero, virola de alpaca."></textarea>
-        </div>
+          <div class="campo">
+            <label for="producto-precio-lista">Precio de lista</label>
+            <input type="number" id="producto-precio-lista" name="precio-lista"
+                   min="0" step="1000" placeholder="85000">
+          </div>
+
+          <div class="campo">
+            <label for="producto-precio-final">Precio final</label>
+            <input type="number" id="producto-precio-final" name="precio-final"
+                   min="0" step="1000" placeholder="68000">
+          </div>
+
+          <div class="campo">
+            <label for="producto-stock">Stock</label>
+            <input type="number" id="producto-stock" name="stock"
+                   min="0" placeholder="5">
+          </div>
+
+          <div class="campo">
+            <label for="producto-foto">Foto del producto</label>
+            <input type="file" id="producto-foto" name="foto" accept="image/*">
+          </div>
+
+        </fieldset>
 
         <div class="ancho-total">
           <button type="submit">Guardar producto</button>

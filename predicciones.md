@@ -210,3 +210,36 @@ position: sticky no lleva nada de JS.
 **Lo que voy a borrar:** producto.html, porque quedó redundante. Entre el
 video, las categorías de abajo del video y los filtros, ya se llega a
 todos los productos. También sale "Productos" del menú.
+
+# prediccion 18/10
+
+
+1. Los for ya están bien puestos en las tres páginas, los revisé uno por
+   uno. Lo que falta es lo que acompaña a esa relación, no la relación.
+2. En contacto uso <br> para bajar el input abajo del label. Eso es
+   maquetar con HTML. La clase .campo ya está hecha en el CSS y hace lo
+   mismo con flex-direction: column, así que no voy a tener que escribir
+   CSS nuevo para contacto.
+3. Al envolver los campos de admin en un fieldset creo que se me va a
+   desarmar el panel, porque .form-panel es un grid y los campos van a
+   dejar de ser hijos directos de ese grid. El fieldset va a pasar a ser
+   el único hijo y los campos se van a apilar. Lo voy a tener que
+   arreglar poniéndole al fieldset grid-column 1 / -1 y su propia
+   definición de columnas, igual que hice en el carrito.
+4. El fieldset trae un borde y un margen propios del navegador. Si no los
+   reseteo se va a ver una caja gris que no es de la tienda.
+5. Al ponerle required a los campos del login, el navegador va a validar
+   antes de que corra mi JavaScript. Así que si aprieto Entrar con los
+   campos vacíos no voy a ver mi mensaje de "todavía no funciona": voy a
+   ver el cartel del navegador. No está roto, es el orden en que pasan
+   las cosas.
+6. Si cambio los id para prefijarlos, tengo que cambiar el for en el
+   mismo movimiento. Si cambio uno solo rompo la asociación y queda peor
+   que antes. Van de a pares.
+7. El select de categoría no tiene estilo propio: la regla del CSS dice
+   input, textarea y el select quedó afuera. Va a seguir viéndose gris
+   hasta que le escriba su regla.
+
+**Cómo lo voy a verificar:** haciendo clic en el texto del label, no en el
+campo. Si el cursor salta al input, la asociación funciona. Y apretando
+Tab para ver que el foco se vea.
