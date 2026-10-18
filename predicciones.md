@@ -243,3 +243,32 @@ todos los productos. También sale "Productos" del menú.
 **Cómo lo voy a verificar:** haciendo clic en el texto del label, no en el
 campo. Si el cursor salta al input, la asociación funciona. Y apretando
 Tab para ver que el foco se vea.
+
+# prediccion 18/10 (segunda parte)
+
+Predicción: meterle JavaScript al carrito con lo que vimos en clase, para
+que el total salga de una cuenta y no esté escrito a mano.
+
+Antes de hacerlo pienso que:
+
+1. Hoy el subtotal, el total y las cuotas están escritos a mano en el
+   HTML. Si cambio un precio tengo que acordarme de cambiarlos en cuatro
+   lugares y seguro me olvido de alguno.
+2. Voy a necesitar que los productos sean un array de objetos en JS, con
+   precio y cantidad, para poder hacer cuentas con ellos.
+3. reduce me sirve para el total porque suma todo en un solo número. El
+   valor inicial 0 no es opcional: si el carrito queda vacío y no lo
+   pongo, reduce da error en vez de dar cero.
+4. find me sirve para los botones + y -, porque necesito UN producto, no
+   una lista. Si usara filter me devolvería un array de un elemento y
+   tendría que sacarlo con [0].
+5. filter me sirve para Eliminar, porque me devuelve todos los que NO son
+   el que borro.
+6. Creo que me voy a chocar con const: si declaro el array con const no
+   voy a poder reasignarlo con el resultado del filter. Voy a tener que
+   vaciarlo y volver a llenarlo, o usar let.
+7. Si solo borro la tarjeta de la pantalla y no la saco del array, el
+   total va a seguir mostrando el precio de un producto que ya no está.
+   El dato manda, la pantalla es el reflejo.
+8. Las cuotas van a quedar con decimales feos cuando el total no sea
+   divisible por 3.
