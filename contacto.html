@@ -49,25 +49,38 @@
 
   <main>
     <section>
+
       <h2>Contacto</h2>
+
       <p>Escribinos y te respondemos a la brevedad.</p>
 
-      <form action="#" method="post">
-        <p>
-          <label for="nombre">Nombre</label><br>
-          <input type="text" id="nombre" name="nombre" required>
-        </p>
-        <p>
-          <label for="email">Correo electrónico</label><br>
-          <input type="email" id="email" name="email" required>
-        </p>
-        <p>
-          <label for="mensaje">Mensaje</label><br>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        </p>
-        <p>
-          <button type="submit">Enviar</button>
-        </p>
+      <form class="form-contacto" action="#" method="post">
+
+        <fieldset class="grupo-campos">
+          <legend>Tus datos</legend>
+
+          <div class="campo">
+            <label for="contacto-nombre">Nombre</label>
+            <input type="text" id="contacto-nombre" name="nombre"
+                   autocomplete="name" required>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-email">Correo electrónico</label>
+            <input type="email" id="contacto-email" name="email"
+                   autocomplete="email" required>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-mensaje">Mensaje</label>
+            <textarea id="contacto-mensaje" name="mensaje" rows="5"
+                      required></textarea>
+          </div>
+
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+
       </form>
     </section>
   </main>

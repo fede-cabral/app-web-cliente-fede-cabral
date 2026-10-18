@@ -51,7 +51,7 @@
 
       <h2>Ingresar</h2>
 
-      <p class="aviso-sesion">
+      <p class="aviso-sesion" role="status" aria-live="polite">
         Pantalla de ejemplo. Todavía no valida nada: el ingreso real
         queda para cuando haya servidor.
       </p>
@@ -59,13 +59,17 @@
       <form class="form-sesion" action="#" method="post">
 
         <div class="campo">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="nombre@correo.com">
+          <label for="sesion-email">Correo electrónico</label>
+          <input type="email" id="sesion-email" name="email"
+                 placeholder="nombre@correo.com"
+                 autocomplete="email" required>
         </div>
 
         <div class="campo">
-          <label for="clave">Contraseña</label>
-          <input type="password" id="clave" name="clave" placeholder="Tu contraseña">
+          <label for="sesion-clave">Contraseña</label>
+          <input type="password" id="sesion-clave" name="clave"
+                 placeholder="Tu contraseña"
+                 autocomplete="current-password" required>
         </div>
 
         <button type="submit">Entrar</button>
