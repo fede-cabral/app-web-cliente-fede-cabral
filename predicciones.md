@@ -272,3 +272,31 @@ Antes de hacerlo pienso que:
    El dato manda, la pantalla es el reflejo.
 8. Las cuotas van a quedar con decimales feos cuando el total no sea
    divisible por 3.
+
+# prediccion 25/10
+
+Predicción: sacar el JavaScript de adentro del HTML y ponerlo en
+archivos .js separados, como los tiene el profe en su repo.
+
+Antes de hacerlo pienso que:
+1. Hoy tengo JavaScript escrito adentro del HTML en tres páginas:
+   carrito.html, index.html y login.html. Cada vez que quiero tocar el
+   JS tengo que bajar hasta el final de un archivo de 600 líneas
+   buscando entre etiquetas.
+2. Con un .js aparte, VS Code me va a avisar de errores de JavaScript
+   que adentro del HTML no me marca igual.
+3. Creo que NO conviene un solo archivo compartido por las tres
+   páginas. El código del carrito busca #subtotal, y en index.html eso
+   no existe: querySelector devolvería null y al pedirle .textContent
+   el navegador tiraría error. Un archivo por página evita eso.
+4. La etiqueta con src va al final del body, en el mismo lugar donde
+   estaba el script. Si la pusiera en el head, el JS correría antes de
+   que existan los elementos y no encontraría nada.
+5. El código es exactamente el mismo: lo estoy mudando, no
+   reescribiendo. Si algo deja de andar es porque me equivoqué en la
+   ruta del src o porque corté de más al copiar.
+6. Esto no se ve en la página. Si todo salió bien, el carrito, el
+   carrusel y la ficha de producto tienen que funcionar igual que
+   antes.
+7. Lo necesito para la clase que viene: fetch y async/await van a vivir
+   en estos archivos, no adentro del HTML.
