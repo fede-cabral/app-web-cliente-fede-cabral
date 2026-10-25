@@ -300,3 +300,33 @@ Antes de hacerlo pienso que:
    antes.
 7. Lo necesito para la clase que viene: fetch y async/await van a vivir
    en estos archivos, no adentro del HTML.
+
+   # prediccion 25/10 (segunda parte)
+
+Predicción: traer los productos desde Supabase con fetch y pintarlos en
+la tabla del panel de administrador, en vez de tenerlos escritos a mano
+en el HTML.
+
+Antes de hacerlo pienso que:
+
+1. Hoy la tabla del admin tiene dos filas inventadas. Dicen "Mate
+   Comando claro" y "Bombilla Alpaca Comando" pero son texto fijo: no
+   salen de ningún lado y nunca cambian.
+2. fetch no devuelve los datos, devuelve una promesa. Por eso necesito
+   await: sin eso me quedaría con el objeto Promise en vez del JSON.
+3. La respuesta tampoco es el JSON todavía, hay que pasarla por
+   .json(), que también devuelve una promesa y también lleva await.
+4. Lo que más me va a confundir, según la slide, es que fetch NO falla
+   si el servidor responde 404 o 500. Esos llegan como respuesta
+   normal. Si no miro respuesta.ok a mano, voy a seguir adelante con
+   datos que no existen.
+5. Creo que me va a volver un array vacío la primera vez por el RLS.
+   Si pasa eso no es el código: es que falta la política de lectura.
+6. map me sirve para convertir cada producto en una fila de la tabla:
+   entra un array de objetos y sale un array de elementos <tr>.
+7. Los precios en la base son números enteros sin formato (68000). El
+   signo peso y los puntos se los tengo que poner yo en JavaScript,
+   como ya hago en el carrito.
+8. La anon key va a quedar a la vista en el archivo .js. Eso está bien
+   y es así a propósito: lo que protege los datos es la política de
+   RLS, no esconder la clave.
