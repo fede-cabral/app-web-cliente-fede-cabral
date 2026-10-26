@@ -73,3 +73,51 @@ const traerProductos = async () => {
 };
 
 traerProductos();
+
+// ===== Crear un producto nuevo (POST) =====
+const formulario = document.querySelector('.form-panel');
+const avisoGuardado = document.querySelector('#aviso-guardado');
+
+formulario.addEventListener('submit', async (evento) => {
+  evento.preventDefault();
+
+  // Los value de los inputs son texto, incluso los de type="number".
+  // Las columnas int8 necesitan numeros de verdad: por eso Number().
+  const nuevo = {
+    nombre:       document.querySelector('#producto-nombre').value,
+    categoria:    document.querySelector('#producto-categoria').value,
+    descripcion:  document.querySelector('#producto-descripcion').value,
+    precio_lista: Number(document.querySelector('#producto-precio-lista').value),
+    precio_final: Number(document.querySelector('#producto-precio-final').value),
+    stock:        Number(document.querySelector('#producto-stock').value),
+    foto:         document.querySelector('#producto-foto').value
+  };
+
+  avisoGuardado.textContent = 'Guardando...';
+
+  try {
+    const respuesta = await fetch(URL_SUPABASE + '/rest/v1/productos', {
+      method: 'POST',
+      headers: {
+        ...cabeceras,
+        'Content-Type': 'application/json',
+        Prefer: 'return=representation'
+      },
+      body: JSON.stringify(nuevo)
+    });
+
+    if (!respuesta.ok) {
+      const detalle = await respuesta.text();
+      throw new Error('HTTP ' + respuesta.status + ' - ' + detalle);
+    }
+
+    const creados = await respuesta.json();
+    avisoGuardado.textContent = 'Producto guardado: ' + creados[0].nombre;
+
+    formulario.reset();
+    traerProductos();
+
+  } catch (error) {
+    avisoGuardado.textContent = 'No se pudo guardar: ' + error.message;
+  }
+});

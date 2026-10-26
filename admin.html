@@ -35,8 +35,7 @@
       <h2>Panel de administración</h2>
 
       <p class="aviso-panel">
-        Pantalla de gestión. Los datos se cargan a mano en el HTML;
-        el guardado automático queda para cuando haya servidor.
+        Los productos se leen y se guardan en la base de datos.
       </p>
 
       <h3>Agregar un producto</h3>
@@ -93,13 +92,15 @@
           </div>
 
           <div class="campo">
-            <label for="producto-foto">Foto del producto</label>
-            <input type="file" id="producto-foto" name="foto" accept="image/*">
+            <label for="producto-foto">Ruta de la foto</label>
+            <input type="text" id="producto-foto" name="foto"
+                   placeholder="fotos/mate-comando-claro.jpeg">
           </div>
 
         </fieldset>
 
         <div class="ancho-total">
+          <p id="aviso-guardado" role="status" aria-live="polite"></p>
           <button type="submit">Guardar producto</button>
         </div>
 
