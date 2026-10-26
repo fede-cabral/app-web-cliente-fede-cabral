@@ -330,3 +330,32 @@ Antes de hacerlo pienso que:
 8. La anon key va a quedar a la vista en el archivo .js. Eso está bien
    y es así a propósito: lo que protege los datos es la política de
    RLS, no esconder la clave.
+# prediccion 25/10 (tercera parte)
+
+Predicción: que el formulario del panel de administrador guarde el
+producto en Supabase de verdad, con POST.
+
+Antes de hacerlo pienso que:
+
+1. Hoy el formulario tiene action="#", así que al enviarlo la página se
+   recarga y no pasa nada. Lo primero es frenar eso con preventDefault.
+2. Para el GET me alcanzó con las cabeceras apikey y Authorization.
+   Para el POST necesito dos más: Content-Type con application/json,
+   para avisarle al servidor cómo leer lo que mando, y el body.
+3. El body siempre va como string. Por eso JSON.stringify: el objeto de
+   JavaScript no se puede mandar tal cual por la red.
+4. Los value de los inputs son SIEMPRE texto, incluso en los de
+   type="number". Si mando "68000" como texto a una columna int8, la
+   base lo va a rechazar o lo va a guardar mal. Tengo que convertirlos
+   con Number().
+5. Creo que me va a fallar con 401 o 403 la primera vez. Mi política de
+   RLS solo permite SELECT. Leer y escribir son permisos distintos y
+   voy a tener que crear una política nueva para INSERT.
+6. Si no le pongo el encabezado Prefer, Supabase responde 201 pero con
+   el cuerpo vacío, así que no voy a poder mostrar qué guardó.
+7. Después de guardar tengo que volver a llamar a traerProductos() para
+   que la tabla de abajo se actualice. Si no, el producto está en la
+   base pero la pantalla sigue mostrando lo viejo.
+8. El campo de la foto es un input type="file" y no me sirve: el
+   navegador devuelve C:\fakepath\ por seguridad. Lo paso a texto para
+   escribir la ruta igual que en el HTML.
