@@ -92,322 +92,34 @@
 
     <div class="catalogo">
 
+      <!-- Mientras llegan los productos dice "Cargando..."; si falla, el error. -->
+      <p id="aviso-catalogo" class="aviso-catalogo" role="status" aria-live="polite"></p>
+
       <section id="mates-calabaza">
         <h2>Mates de calabaza</h2>
         <p class="proximamente">Próximamente.</p>
       </section>
 
+      <!-- Las grillas quedan vacías: index.js las llena con lo que hay
+           en Supabase, usando el id de cada section como categoría. -->
       <section id="mates-madera">
         <h2>Mates de madera, elegí el tuyo por $68.000</h2>
-        <div class="grilla">
-
-          <article data-especialidad="Paracaidista" data-color="Claro" data-ampliada="fotos/mate-paracaidista-claro-grande.png">
-            <img src="fotos/mata-paracaidista-claro.jpeg" alt="Mate Paracaidista claro">
-            <h3>Mate Paracaidista claro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Asalto Aéreo" data-color="Natural" data-ampliada="fotos/mate-asalto-aereo-grande.png">
-            <img src="fotos/mate-asalto-aereo.jpeg" alt="Mate Asalto Aereo">
-            <h3>Mate Asalto Aereo</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador de Montaña" data-color="Claro" data-ampliada="fotos/mate-cazador-de-montana-claro-grande.png">
-            <img src="fotos/mate-cazador-de-montana-claro.jpeg" alt="Mate Cazador de Montaña claro">
-            <h3>Mate Cazador de Montaña claro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador de Montaña" data-color="Negro" data-ampliada="fotos/mate-cazador-de-montana-negro-grande.png">
-            <img src="fotos/mate-cazador-de-montana-negro.jpeg" alt="Mate Cazador de Montaña negro">
-            <h3>Mate Cazador de Montaña negro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador de Monte" data-color="Claro" data-ampliada="fotos/mate-cazador-de-monte-claro-grande.png">
-            <img src="fotos/mate-cazador-de-monte-claro.jpeg" alt="Mate Cazador de Monte Claro">
-            <h3>Mate Cazador de Monte Claro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador de Monte" data-color="Negro" data-ampliada="fotos/mate-cazador-de-monte-negro-grande.png">
-            <img src="fotos/mate-cazador-de-monte-negro.jpeg" alt="Mate Cazador de Monte Negro">
-            <h3>Mate Cazador de Monte Negro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Comando" data-color="Claro" data-ampliada="fotos/mate-comando-claro-grande.png">
-            <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
-            <h3>Mate Comando claro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Monte" data-color="Claro" data-ampliada="fotos/mate-monte-claro-grande.png">
-            <img src="fotos/mate-monte-claro.jpeg" alt="Mate Monte claro">
-            <h3>Mate Monte claro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Monte" data-color="Negro" data-ampliada="fotos/mate-monte-negro-grande.png">
-            <img src="fotos/mate-monte-negro.jpeg" alt="Mate Monte negro">
-            <h3>Mate Monte negro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Paracaidista" data-color="Oscuro" data-ampliada="fotos/mate-paracaidista-oscuro-grande.png">
-            <img src="fotos/mate-paracaidista-oscuro.jpeg" alt="Mate Paracaidista Oscuro">
-            <h3>Mate Paracaidista Oscuro</h3>
-            <p class="precio-anterior">$85.000</p>
-            <p class="precio">$68.000</p>
-            <p class="cuotas">3 cuotas sin interés de $22.666</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-        </div>
+        <div class="grilla"></div>
       </section>
 
       <section id="bombillas-alpaca">
         <h2>Bombillas de alpaca</h2>
-        <div class="grilla">
-
-          <article data-especialidad="Caballería" data-ampliada="fotos/bombilla-alpaca-caballeria-grande.png">
-            <img src="fotos/bombilla-alpaca-caballeria.jpeg" alt="Bombilla Alpaca Caballeria">
-            <h3>Bombilla Alpaca Caballeria</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Comando" data-ampliada="fotos/bombilla-alpaca-comando-grande.png">
-            <img src="fotos/bombilla-alpaca-comando.jpeg" alt="Bombilla Alpaca Comando">
-            <h3>Bombilla Alpaca Comando</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Comando" data-ampliada="fotos/bombilla-alpaca-comando-2-grande.png">
-            <img src="fotos/bombilla-alpaca-comando-2.jpeg" alt="Bombilla Alpaca Comando 2">
-            <h3>Bombilla Alpaca Comando 2</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Fuerzas Especiales" data-ampliada="fotos/bombilla-alpaca-ffee-grande.png">
-            <img src="fotos/bombilla-alpaca-ffee.jpeg" alt="Bombilla Alpaca FFEE">
-            <h3>Bombilla Alpaca FFEE</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Intendencia" data-ampliada="fotos/bombilla-alpaca-intendencia-grande.png">
-            <img src="fotos/bombilla-alpaca-intendencia.jpeg" alt="Bombilla Alpaca Intendencia">
-            <h3>Bombilla Alpaca Intendencia</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Asalto Aéreo" data-ampliada="fotos/bombilla-alpaca-asalto-aereo-grande.png">
-            <img src="fotos/bombilla-alpaca-asalto-aereo.jpeg" alt="Bombilla Alpaca asalto aereo">
-            <h3>Bombilla Alpaca asalto aereo</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador de Montaña" data-ampliada="fotos/bombilla-alpaca-cazador-de-montana-grande.png">
-            <img src="fotos/bombilla-alpaca-cazador-de-montana.jpeg" alt="Bombilla Alpaca cazador de Montaña">
-            <h3>Bombilla Alpaca cazador de Montaña</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Cazador Patagónico" data-ampliada="fotos/bombilla-alpaca-cazador-patagonico-grande.png">
-            <img src="fotos/bombilla-alpaca-cazador-patagonico.jpeg" alt="Bombilla Alpaca cazador patagonico">
-            <h3>Bombilla Alpaca cazador patagonico</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Educación Física" data-ampliada="fotos/bombilla-alpaca-educacion-fisica-grande.png">
-            <img src="fotos/bombilla-alpaca-educacion-fisica.jpeg" alt="Bombilla Alpaca educacion fisica">
-            <h3>Bombilla Alpaca educacion fisica</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Paracaidista" data-ampliada="fotos/bombilla-alpaca-paracaidista-grande.png">
-            <img src="fotos/bombilla-alpaca-paracaidista.jpeg" alt="Bombilla Alpaca paracaidista">
-            <h3>Bombilla Alpaca paracaidista</h3>
-            <p class="precio-anterior">$65.000</p>
-            <p class="precio">$55.000</p>
-            <p class="cuotas">3 cuotas sin interés de $18.333</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-        </div>
+        <div class="grilla"></div>
       </section>
 
       <section id="yerbas">
         <h2>Elegí tu favorita</h2>
-        <div class="grilla">
-
-           <article data-especialidad="Canarias" data-ampliada="fotos/yerba-canarias-grande.jpeg">
-            <img src="fotos/yerba-canarias.jpeg" alt="Yerba Canarias">
-            <h3>Yerba Canarias</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Verdeflor" data-ampliada="fotos/yerba-verdeflor-grande.jpeg">
-            <img src="fotos/yerba-verdeflor.jpeg" alt="Yerba Verdeflor">
-            <h3>Yerba Verdeflor</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Rosamonte" data-ampliada="fotos/yerba-rosamonte-grande.jpeg">
-            <img src="fotos/yerba-rosamonte.jpeg" alt="Yerba Rosamonte">
-            <h3>Yerba Rosamonte</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Playadito" data-ampliada="fotos/yerba-playadito-grande.jpeg">
-            <img src="fotos/yerba-playadito.jpeg" alt="Yerba Playadito">
-            <h3>Yerba Playadito</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-                    </article>
-
-          <article data-especialidad="Cachamate" data-ampliada="fotos/yerba-cachamate-500g-grande.jpg">
-            <img src="fotos/yerba-cachamate-500g.jpg" alt="Yerba Cachamate de 500 gramos">
-            <h3>Yerba Cachamate 500 g</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="La Tranquera" data-ampliada="fotos/yerba-la-tranquera-1kg-grande.jpg">
-            <img src="fotos/yerba-la-tranquera-1kg.jpg" alt="Yerba La Tranquera de 1 kilo">
-            <h3>Yerba La Tranquera 1 kg</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Mate Rojo" data-ampliada="fotos/yerba-mate-rojo-1kg-grande.jpg">
-            <img src="fotos/yerba-mate-rojo-1kg.jpg" alt="Yerba Mate Rojo de 1 kilo">
-            <h3>Yerba Mate Rojo 1 kg</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Piporé Suave" data-ampliada="fotos/yerba-pipore-suave-500g-grande.jpg">
-            <img src="fotos/yerba-pipore-suave-500g.jpg" alt="Yerba Piporé Suave de 500 gramos">
-            <h3>Yerba Piporé Suave 500 g</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-        </div>
+        <div class="grilla"></div>
       </section>
 
       <section id="termos">
         <h2>Los mejores termos del mercado</h2>
-        <div class="grilla">
-
-          <article data-especialidad="Coleman" data-ampliada="fotos/termo-coleman-grande.jpeg">
-            <img src="fotos/termo-coleman.jpeg" alt="Termo Coleman de 1,2 litros">
-            <h3>Termo Coleman 1,2 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Stanley Negro" data-ampliada="fotos/termo-stanley-negro-grande.jpeg">
-            <img src="fotos/termo-stanley-negro.jpeg" alt="Termo Stanley negro de 1,2 litros">
-            <h3>Termo Stanley Negro 1,2 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Stanley Plateado" data-ampliada="fotos/termo-stanley-plateado-grande.jpeg">
-            <img src="fotos/termo-stanley-plateado.jpeg" alt="Termo Stanley plateado de 1,2 litros">
-            <h3>Termo Stanley Plateado 1,2 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-                    </article>
-
-          <article data-especialidad="Coleman Negro" data-ampliada="fotos/termo-coleman-negro-1lt-grande.jpeg">
-            <img src="fotos/termo-coleman-negro-1lt.jpeg" alt="Termo Coleman negro de 1 litro">
-            <h3>Termo Coleman Negro 1 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Hudson" data-ampliada="fotos/termo-hudson-1.2lt-grande.jpg">
-            <img src="fotos/termo-hudson-1.2lt.jpg" alt="Termo Hudson de 1,2 litros">
-            <h3>Termo Hudson 1,2 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Lumilagro" data-ampliada="fotos/termo-lumilagro-1.2lt-grande.jpg">
-            <img src="fotos/termo-lumilagro-1.2lt.jpg" alt="Termo Lumilagro de 1,2 litros">
-            <h3>Termo Lumilagro 1,2 L</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-          <article data-especialidad="Contigo" data-ampliada="fotos/termo-contigo-grande.jpeg">
-            <img src="fotos/termo-contigo.jpeg" alt="Termo Contigo">
-            <h3>Termo Contigo</h3>
-            <p class="precio">Consultar precio</p>
-            <a class="boton-comprar" href="carrito.html">Agregar al carrito</a>
-          </article>
-
-        </div>
+        <div class="grilla"></div>
       </section>
 
     </div>

@@ -387,3 +387,58 @@ Antes de hacerlo pienso que:
    traerProductos(), así la lista muestra lo que hay en la base.
 10. El CSS nuevo va al final de style.css, con todas las clases
     empezando por .admin, para no pisar estilos de la tienda.
+
+    Antes de hacerlo pienso que:
+1. Hoy cada producto está dos veces: en el HTML y en la base. Si cargo o
+   borro uno desde el admin, la tienda no se entera. Con fetch la base
+   pasa a ser la única fuente.
+2. Las secciones ya tienen de id lo mismo que la columna categoria
+   (mates-madera, yerbas...). Con filter puedo quedarme con los productos
+   de cada sección comparando seccion.id con producto.categoria.
+3. Mates de calabaza no tiene grilla porque dice "Próximamente". Si no lo
+   tengo en cuenta, querySelector('.grilla') me va a dar null ahí.
+4. El código de la ficha hoy busca los article cuando carga la página.
+   Como ahora las tarjetas llegan después con fetch, ese querySelectorAll
+   no va a encontrar ninguna y las fichas no van a abrir. El clic se lo
+   tengo que poner a cada tarjeta cuando la creo.
+5. La ficha del mate y la de la bombilla son dos bloques de código casi
+   iguales. Los puedo juntar en una función abrirFicha(fondo, tarjeta).
+6. Si hago dataset.color = null en una bombilla, se guarda el texto
+   "null". Solo pongo los data-* cuando hay dato.
+7. "Agregar al carrito" pasa de <a> a <button>, porque ya no va a llevar
+   a otra página. Un button no ocupa todo el ancho como el <a> con
+   display block: lo tengo que arreglar en el CSS.
+8. Las flechas del carrusel no se ven bien desde el commit df37016: ahí
+   se borró su CSS sin querer. El JS las sigue creando, pero salen como
+   botones comunes. Hay que recuperar ese CSS.
+9. Las yerbas y los termos van a dejar de decir "Consultar precio",
+   porque en la base tienen precio de verdad.
+
+   Predicción: que la tienda muestre los productos que hay en Supabase en
+vez de tenerlos escritos a mano en index.html.
+
+Antes de hacerlo pienso que:
+1. Hoy cada producto está dos veces: en el HTML y en la base. Si cargo o
+   borro uno desde el admin, la tienda no se entera. Con fetch la base
+   pasa a ser la única fuente.
+2. Las secciones ya tienen de id lo mismo que la columna categoria
+   (mates-madera, yerbas...). Con filter puedo quedarme con los productos
+   de cada sección comparando seccion.id con producto.categoria.
+3. Mates de calabaza no tiene grilla porque dice "Próximamente". Si no lo
+   tengo en cuenta, querySelector('.grilla') me va a dar null ahí.
+4. El código de la ficha hoy busca los article cuando carga la página.
+   Como ahora las tarjetas llegan después con fetch, ese querySelectorAll
+   no va a encontrar ninguna y las fichas no van a abrir. El clic se lo
+   tengo que poner a cada tarjeta cuando la creo.
+5. La ficha del mate y la de la bombilla son dos bloques de código casi
+   iguales. Los puedo juntar en una función abrirFicha(fondo, tarjeta).
+6. Si hago dataset.color = null en una bombilla, se guarda el texto
+   "null". Solo pongo los data-* cuando hay dato.
+7. "Agregar al carrito" pasa de <a> a <button>, porque ya no va a llevar
+   a otra página. Un button no ocupa todo el ancho como el <a> con
+   display block: lo tengo que arreglar en el CSS.
+8. Las flechas del carrusel no se ven bien desde el commit df37016: ahí
+   se borró su CSS sin querer. El JS las sigue creando, pero salen como
+   botones comunes. Hay que recuperar ese CSS.
+9. Las yerbas y los termos van a dejar de decir "Consultar precio",
+   porque en la base tienen precio de verdad
