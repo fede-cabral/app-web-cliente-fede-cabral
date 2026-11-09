@@ -1833,3 +1833,178 @@ button.boton-comprar {
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+/* ===== Pago simulado ===== */
+
+/* La regla general de button le pone padding 12px 28px, y en un boton
+   de 34px de ancho eso corria la × para un costado. */
+.cerrar-ficha {
+  padding: 0;
+}
+
+.ficha-pago {
+  max-width: 560px;
+}
+
+.aviso-pago {
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+/* Cada paso (datos, entrega, pago) en su propia caja blanca. */
+.grupo-pago {
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 14px 16px 2px;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+}
+
+.grupo-pago legend {
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--verde-oscuro);
+}
+
+/* El fieldset de la direccion va adentro de "Entrega": sin borde propio. */
+.zona-direccion {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form-pago .campo {
+  margin-bottom: 14px;
+}
+
+/* Las reglas generales de input, select y textarea los cortan en 400px. */
+.form-pago input,
+.form-pago select,
+.form-pago textarea {
+  max-width: none;
+}
+
+/* Dos campos uno al lado del otro. */
+.pago-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ===== Opciones de entrega ===== */
+.opciones-entrega {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* Todo el renglon es el label: se puede tocar en cualquier parte. */
+.opcion-entrega {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--verde-claro);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* La opcion elegida se marca en dorado. */
+.opcion-entrega:has(input:checked) {
+  border-color: var(--dorado);
+  background-color: var(--crema);
+}
+
+/* La regla general de input le pone width 100% y el circulito se estiraba. */
+.opcion-entrega input {
+  width: auto;
+  margin: 0;
+}
+
+/* "Gratis" a la derecha del renglon. */
+.opcion-entrega .gratis {
+  margin-left: auto;
+}
+
+/* Con "retiro" se esconde la direccion y aparece el aviso. */
+.retiro-info {
+  display: none;
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--verde);
+}
+
+.form-pago.retiro .zona-direccion {
+  display: none;
+}
+
+.form-pago.retiro .retiro-info {
+  display: block;
+}
+
+.estado-pago {
+  min-height: 1.6em;
+  margin: 4px 0 12px;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+.ficha-pago .boton-comprar {
+  width: 100%;
+}
+
+/* ===== Comprobante ===== */
+.pago-aprobado {
+  display: none;
+  text-align: center;
+}
+
+.ficha-pago.aprobado .form-pago {
+  display: none;
+}
+
+.ficha-pago.aprobado .pago-aprobado {
+  display: block;
+}
+
+.comprobante {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+}
+
+.comprobante li {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--verde-claro);
+  font-size: 14px;
+}
+
+.comprobante li:last-child {
+  border-bottom: none;
+}
+
+.comprobante-nota {
+  font-size: 14px;
+  color: var(--verde);
+}
+
+/* En el celular los campos de a dos se apilan. */
+@media (max-width: 480px) {
+  .pago-fila {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

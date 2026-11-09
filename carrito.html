@@ -112,6 +112,229 @@
   <p>Mates_Oliver 2026. Todos los derechos reservados.</p>
 
 </footer>
+
+  <!-- Ventana de pago. Reusa .fondo-ficha y .ficha de la tienda, así
+       que el fondo oscuro, la animación y la × ya vienen hechos. -->
+  <div class="fondo-ficha" id="fondo-pago">
+    <div class="ficha ficha-pago">
+      <button class="cerrar-ficha" type="button" aria-label="Cerrar pago">&times;</button>
+
+      <!-- Parte 1: el formulario, en tres pasos como en las tiendas
+           online: tus datos, la entrega y el pago. -->
+      <form class="form-pago" id="form-pago">
+        <h3 class="ficha-titulo">Finalizar compra</h3>
+        <p class="ficha-subtitulo">Total a pagar: <strong id="pago-total">$0</strong></p>
+
+        <p class="aviso-pago">
+          Es una simulación: no se cobra nada y los datos no se guardan.
+          Usá datos inventados, nunca los de una tarjeta de verdad.
+        </p>
+
+        <fieldset class="grupo-pago">
+          <legend>1. Tus datos</legend>
+
+          <div class="campo">
+            <label for="comprador-nombre">Nombre y apellido</label>
+            <input type="text" id="comprador-nombre" name="nombre" required
+                   autocomplete="name" placeholder="Juan Pérez">
+          </div>
+
+          <div class="campo">
+            <label for="comprador-email">Email</label>
+            <input type="email" id="comprador-email" name="email" required
+                   autocomplete="email" placeholder="juan@ejemplo.com">
+          </div>
+
+          <div class="pago-fila">
+            <div class="campo">
+              <label for="comprador-telefono">Teléfono</label>
+              <input type="tel" id="comprador-telefono" name="telefono" required
+                     autocomplete="tel" pattern="[0-9 +\-]{8,20}"
+                     title="Solo números, espacios, + o guiones"
+                     placeholder="11 2345 6789">
+            </div>
+
+            <div class="campo">
+              <label for="comprador-dni">DNI</label>
+              <input type="text" id="comprador-dni" name="dni" required
+                     inputmode="numeric" maxlength="8" pattern="[0-9]{7,8}"
+                     title="7 u 8 números, sin puntos" placeholder="30123456">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="grupo-pago">
+          <legend>2. Entrega</legend>
+
+          <div class="opciones-entrega">
+            <label class="opcion-entrega">
+              <input type="radio" name="entrega" id="entrega-envio" value="envio" checked>
+              <span>Envío a domicilio</span>
+              <span class="gratis">Gratis</span>
+            </label>
+
+            <label class="opcion-entrega">
+              <input type="radio" name="entrega" id="entrega-retiro" value="retiro">
+              <span>Retiro en el local</span>
+              <span class="gratis">Gratis</span>
+            </label>
+          </div>
+
+          <!-- Un fieldset con disabled saca a sus campos de la validación:
+               si retira en el local, no le pedimos la dirección. -->
+          <fieldset class="zona-direccion" id="zona-direccion">
+
+            <div class="pago-fila">
+              <div class="campo">
+                <label for="envio-calle">Calle</label>
+                <input type="text" id="envio-calle" name="calle" required
+                       autocomplete="address-line1" placeholder="Av. Rivadavia">
+              </div>
+
+              <div class="campo">
+                <label for="envio-numero">Número</label>
+                <input type="text" id="envio-numero" name="numero-calle" required
+                       inputmode="numeric" pattern="[0-9]{1,6}"
+                       title="Solo números" placeholder="5000">
+              </div>
+            </div>
+
+            <div class="pago-fila">
+              <div class="campo">
+                <label for="envio-piso">Piso / Depto (opcional)</label>
+                <input type="text" id="envio-piso" name="piso"
+                       autocomplete="address-line2" placeholder="3° B">
+              </div>
+
+              <div class="campo">
+                <label for="envio-cp">Código postal</label>
+                <input type="text" id="envio-cp" name="codigo-postal" required
+                       autocomplete="postal-code" maxlength="8"
+                       pattern="[A-Za-z0-9]{4,8}" title="Entre 4 y 8 letras o números"
+                       placeholder="1406">
+              </div>
+            </div>
+
+            <div class="pago-fila">
+              <div class="campo">
+                <label for="envio-ciudad">Ciudad</label>
+                <input type="text" id="envio-ciudad" name="ciudad" required
+                       autocomplete="address-level2" placeholder="Caballito">
+              </div>
+
+              <div class="campo">
+                <label for="envio-provincia">Provincia</label>
+                <select id="envio-provincia" name="provincia" required>
+                  <option value="">Elegí una</option>
+                  <option>Buenos Aires</option>
+                  <option>Ciudad de Buenos Aires</option>
+                  <option>Catamarca</option>
+                  <option>Chaco</option>
+                  <option>Chubut</option>
+                  <option>Córdoba</option>
+                  <option>Corrientes</option>
+                  <option>Entre Ríos</option>
+                  <option>Formosa</option>
+                  <option>Jujuy</option>
+                  <option>La Pampa</option>
+                  <option>La Rioja</option>
+                  <option>Mendoza</option>
+                  <option>Misiones</option>
+                  <option>Neuquén</option>
+                  <option>Río Negro</option>
+                  <option>Salta</option>
+                  <option>San Juan</option>
+                  <option>San Luis</option>
+                  <option>Santa Cruz</option>
+                  <option>Santa Fe</option>
+                  <option>Santiago del Estero</option>
+                  <option>Tierra del Fuego</option>
+                  <option>Tucumán</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="envio-indicaciones">Indicaciones para el envío (opcional)</label>
+              <textarea id="envio-indicaciones" name="indicaciones" rows="2"
+                        placeholder="Entre calles, timbre, horario en que hay alguien..."></textarea>
+            </div>
+
+          </fieldset>
+
+          <p class="retiro-info">
+            Te avisamos por email cuando tu pedido esté listo para retirar.
+            Horario: lunes a viernes de 9 a 18.
+          </p>
+        </fieldset>
+
+        <fieldset class="grupo-pago">
+          <legend>3. Pago con tarjeta</legend>
+
+          <div class="campo">
+            <label for="pago-titular">Nombre como figura en la tarjeta</label>
+            <input type="text" id="pago-titular" name="titular" required
+                   autocomplete="off" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}"
+                   title="Solo letras y espacios"
+                   placeholder="JUAN PEREZ">
+          </div>
+
+          <div class="campo">
+            <label for="pago-numero">Número de tarjeta</label>
+            <input type="text" id="pago-numero" name="numero" required
+                   autocomplete="off" inputmode="numeric" maxlength="16"
+                   pattern="[0-9]{16}" title="16 números, sin espacios"
+                   placeholder="4000000000000000">
+          </div>
+
+          <div class="pago-fila">
+            <div class="campo">
+              <label for="pago-vencimiento">Vencimiento</label>
+              <input type="text" id="pago-vencimiento" name="vencimiento" required
+                     autocomplete="off" maxlength="5"
+                     pattern="(0[1-9]|1[0-2])/[0-9]{2}" title="Mes y año: MM/AA"
+                     placeholder="MM/AA">
+            </div>
+
+            <div class="campo">
+              <label for="pago-codigo">Código de seguridad</label>
+              <input type="text" id="pago-codigo" name="codigo" required
+                     autocomplete="off" inputmode="numeric" maxlength="4"
+                     pattern="[0-9]{3,4}" title="3 o 4 números"
+                     placeholder="123">
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="pago-cuotas">Cuotas</label>
+            <!-- El texto de cada opción lo completa carrito.js con el total. -->
+            <select id="pago-cuotas" name="cuotas">
+              <option value="1">1 pago</option>
+              <option value="3">3 cuotas sin interés</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <p id="estado-pago" class="estado-pago" role="status" aria-live="polite"></p>
+
+        <button type="submit" class="boton-comprar">Pagar</button>
+      </form>
+
+      <!-- Parte 2: el comprobante. Se ve cuando la ficha tiene la clase aprobado. -->
+      <div class="pago-aprobado">
+        <h3 class="ficha-titulo">¡Pago aprobado!</h3>
+        <p class="ficha-subtitulo">Pedido <strong id="numero-pedido"></strong></p>
+
+        <!-- carrito.js arma una línea por cada dato del pedido. -->
+        <ul class="comprobante" id="comprobante"></ul>
+
+        <p class="comprobante-nota">Guardá el número de pedido para cualquier consulta.</p>
+        <a class="boton-comprar" href="index.html">Volver a la tienda</a>
+      </div>
+
+    </div>
+  </div>
+
 <script src="carrito-guardado.js"></script>
     <script src="carrito.js"></script>
 </body>
