@@ -446,3 +446,36 @@ Antes de hacerlo pienso que:
    vuelvo a pintar todo. El dato manda, la pantalla es el reflejo.
 8. Con el carrito vacío no tiene sentido "Finalizar compra": lo deshabilito.
 9. El admin no lleva el archivo compartido porque no tiene carrito.
+
+# prediccion 9/11 (quinta parte)
+
+Predicción: que "Finalizar compra" abra una ventana para pagar con
+tarjeta, simule que el banco aprueba el pago y vacíe el carrito.
+
+Antes de hacerlo pienso que:
+1. No hay un banco de verdad: el pago es una simulación. Nunca hay que
+   poner datos de una tarjeta real, y el formulario lo tiene que avisar.
+2. La ventana puede reusar .fondo-ficha y .ficha de la tienda: el fondo
+   oscuro, la animación y la × ya están hechos. Si uso las mismas clases
+   no tengo que escribir ese CSS de nuevo.
+3. Con required y pattern el navegador revisa los datos antes de que
+   corra mi JavaScript: si el número no tiene 16 cifras, el submit ni
+   siquiera se dispara.
+4. setTimeout me sirve para simular la espera del banco: el código de
+   adentro corre después de unos segundos, no en el momento.
+5. Mientras "el banco" procesa no tendría que dejar cerrar la ventana,
+   porque el carrito se vaciaría sin que la persona vea el aviso.
+6. Al aprobar, vacío el carrito con guardarCarrito([]): así se borra en
+   localStorage y el numerito del header vuelve a 0.
+7. El formulario y el "¡Pago aprobado!" están en la misma ventana. Muestro
+   uno u otro con una clase (aprobado) en vez de crear otra ventana.
+8. La × de las fichas está corrida para un costado porque la regla
+   general de button le pone padding. Se arregla con padding: 0.
+   9. Un checkout de verdad pide más que la tarjeta: los datos del
+   comprador, cómo quiere recibirlo y a qué dirección. Lo ordeno en
+   tres pasos con fieldset: tus datos, entrega y pago.
+10. Si elige retirar en el local, esconder la dirección con CSS no
+    alcanza: sus campos son required y el navegador no dejaría pagar.
+    Un fieldset con disabled saca a sus campos de la validación.
+11. El comprobante lo tengo que armar ANTES de vaciar el carrito: si
+    lo vacío primero, el total ya da 0.

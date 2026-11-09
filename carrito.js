@@ -136,3 +136,153 @@ const pintarCarrito = () => {
 };
 
 pintarCarrito();
+
+
+// ===== Pago simulado =====
+// No hay banco de verdad: setTimeout espera unos segundos para que se
+// sienta como que "algo" esta procesando, y despues aprueba siempre.
+
+const fondoPago = document.querySelector('#fondo-pago');
+const fichaPago = fondoPago.querySelector('.ficha-pago');
+const formPago = document.querySelector('#form-pago');
+const estadoPago = document.querySelector('#estado-pago');
+const botonPagar = formPago.querySelector('button[type="submit"]');
+const zonaDireccion = document.querySelector('#zona-direccion');
+const selectCuotas = document.querySelector('#pago-cuotas');
+
+// Mientras "el banco" procesa no dejo cerrar la ventana: si la cierro a
+// la mitad, el carrito se vaciaria igual sin que la persona vea el aviso.
+let procesando = false;
+
+// Atajo para leer un campo por su id, sin espacios de mas a los costados.
+const valor = (id) => document.querySelector('#' + id).value.trim();
+
+const calcularTotal = () =>
+  leerCarrito().reduce((acumulado, p) => acumulado + p.precio * p.cantidad, 0);
+
+// ===== Envio a domicilio o retiro en el local =====
+const actualizarEntrega = () => {
+  const esRetiro = document.querySelector('#entrega-retiro').checked;
+
+  // La clase muestra u oculta la direccion y el aviso de retiro (CSS).
+  formPago.classList.toggle('retiro', esRetiro);
+
+  // Ocultarla no alcanza: sus campos son required y el navegador no
+  // dejaria pagar. Un fieldset disabled los saca de la validacion.
+  zonaDireccion.disabled = esRetiro;
+};
+
+document.querySelectorAll('input[name="entrega"]').forEach((opcion) => {
+  opcion.addEventListener('change', actualizarEntrega);
+});
+
+// ===== Abrir y cerrar la ventana =====
+const abrirPago = () => {
+  const total = calcularTotal();
+  document.querySelector('#pago-total').textContent = formatearPrecio(total);
+
+  // Si ya se pago una vez, la ventana arranca de nuevo desde el formulario.
+  fichaPago.classList.remove('aprobado');
+  formPago.reset();
+  estadoPago.textContent = '';
+
+  // reset() vuelve a marcar "Envio a domicilio": acomodo la direccion.
+  actualizarEntrega();
+
+  // Las opciones de cuotas muestran cuanto se paga con el total de hoy.
+  selectCuotas.options[0].textContent = '1 pago de ' + formatearPrecio(total);
+  selectCuotas.options[1].textContent =
+    '3 cuotas sin interés de ' + formatearPrecio(Math.ceil(total / 3));
+
+  fondoPago.classList.add('abierta');
+  document.body.style.overflow = 'hidden';
+};
+
+const cerrarPago = () => {
+  if (procesando) {
+    return;
+  }
+  fondoPago.classList.remove('abierta');
+  document.body.style.overflow = '';
+};
+
+botonFinalizar.addEventListener('click', abrirPago);
+fondoPago.querySelector('.cerrar-ficha').addEventListener('click', cerrarPago);
+
+// Clic en lo oscuro de afuera tambien cierra, como en las fichas de la tienda.
+fondoPago.addEventListener('click', (evento) => {
+  if (evento.target === fondoPago) cerrarPago();
+});
+
+document.addEventListener('keydown', (evento) => {
+  if (evento.key === 'Escape') cerrarPago();
+});
+
+// ===== Comprobante =====
+// Una linea <li> con un titulo en negrita y el dato al lado.
+const agregarLinea = (lista, titulo, texto) => {
+  const linea = document.createElement('li');
+  const fuerte = document.createElement('strong');
+  fuerte.textContent = titulo + ': ';
+  linea.append(fuerte, texto);
+  lista.appendChild(linea);
+};
+
+const armarComprobante = (total) => {
+  const lista = document.querySelector('#comprobante');
+  lista.innerHTML = '';
+
+  agregarLinea(lista, 'Comprador', valor('comprador-nombre') + ' (DNI ' + valor('comprador-dni') + ')');
+  agregarLinea(lista, 'Contacto', valor('comprador-email') + ' · ' + valor('comprador-telefono'));
+
+  if (document.querySelector('#entrega-retiro').checked) {
+    agregarLinea(lista, 'Entrega', 'Retiro en el local, te avisamos por email');
+  } else {
+    // El piso es opcional: solo lo sumo si escribieron algo.
+    let direccion = valor('envio-calle') + ' ' + valor('envio-numero');
+    if (valor('envio-piso')) {
+      direccion += ', ' + valor('envio-piso');
+    }
+    direccion += ' · ' + valor('envio-ciudad') + ', ' + valor('envio-provincia') +
+      ' (CP ' + valor('envio-cp') + ')';
+    agregarLinea(lista, 'Envío a', direccion);
+  }
+
+  // De la tarjeta muestro solo los ultimos 4 numeros, como los tickets reales.
+  const ultimos = valor('pago-numero').slice(-4);
+  const cuotas = selectCuotas.value === '3'
+    ? '3 cuotas de ' + formatearPrecio(Math.ceil(total / 3))
+    : '1 pago';
+  agregarLinea(lista, 'Pago', 'Tarjeta terminada en ' + ultimos + ', ' + cuotas);
+
+  agregarLinea(lista, 'Total', formatearPrecio(total));
+};
+
+// ===== Pagar =====
+formPago.addEventListener('submit', (evento) => {
+  // Si llegamos aca, el navegador ya reviso los required y los pattern:
+  // con algun campo mal, el submit ni siquiera se dispara.
+  evento.preventDefault();
+
+  procesando = true;
+  botonPagar.disabled = true;
+  estadoPago.textContent = 'Procesando el pago...';
+
+  setTimeout(() => {
+    // Date.now() son los milisegundos desde 1970: cambia todo el tiempo,
+    // asi que sus ultimos 6 numeros sirven como numero de pedido.
+    const numeroPedido = 'MO-' + String(Date.now()).slice(-6);
+    document.querySelector('#numero-pedido').textContent = numeroPedido;
+
+    // El comprobante se arma ANTES de vaciar el carrito: despues el total ya seria 0.
+    armarComprobante(calcularTotal());
+
+    // Pago hecho: el carrito queda vacio, en localStorage y en pantalla.
+    guardarCarrito([]);
+    pintarCarrito();
+
+    fichaPago.classList.add('aprobado');
+    procesando = false;
+    botonPagar.disabled = false;
+  }, 2000);
+});
