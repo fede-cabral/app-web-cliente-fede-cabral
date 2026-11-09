@@ -1731,3 +1731,78 @@ textarea:user-invalid {
     justify-self: start;
   }
 }
+/* ===== Flechas del carrusel (recuperadas) ===== */
+/* Se borraron sin querer en el commit df37016. El JS seguia creando los
+   botones, pero sin estas reglas salian como botones comunes debajo de
+   la grilla en vez de flotar a los costados. */
+
+/* El marco es el que le da el "punto de referencia" a las flechas.
+   Sin position: relative aca, las flechas se irian al borde de la pantalla. */
+.marco-carrusel {
+  position: relative;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  width: 38px;
+  height: 38px;
+  /* La regla general de button le mete padding 12px 28px y eso
+     deformaba las flechas: quedaban ovaladas en vez de redondas. */
+  padding: 0;
+  border: 1px solid var(--verde-claro);
+  border-radius: 50%;
+
+  background-color: #ffffff;
+  color: var(--verde-oscuro);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.flecha:hover {
+  background-color: var(--verde-oscuro);
+  color: var(--dorado-claro);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.flecha-izq { left: -10px; }
+.flecha-der { right: -10px; }
+
+/* En pantallas chicas no hacen falta: ahi se arrastra con el dedo. */
+@media (max-width: 560px) {
+  .flecha { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flecha { transition: none; }
+}
+
+/* ===== Tienda desde Supabase ===== */
+
+/* "Agregar al carrito" ahora es un <button>. Un <a> con display: block
+   ocupa todo el ancho solo; un button no, hay que pedirselo. Tambien le
+   saco el borde gris y la letra que el navegador le pone a los botones. */
+button.boton-comprar {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.aviso-catalogo {
+  margin: 0;
+  color: var(--verde);
+  font-style: italic;
+}
+
+/* Vacio no ocupa lugar, asi no queda un hueco arriba del catalogo. */
+.aviso-catalogo:empty {
+  display: none;
+}
