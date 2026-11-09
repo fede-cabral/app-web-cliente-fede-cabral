@@ -179,37 +179,7 @@ position: sticky no lleva nada de JS.
 **Lo que voy a borrar:** producto.html, porque quedó redundante. Entre el
 video, las categorías de abajo del video y los filtros, ya se llega a
 todos los productos. También sale "Productos" del menú.
-Voy a hacer tres cosas: darle ficha propia a las bombillas, que al tocar
-la foto de una ficha se abra la imagen en grande, y que los filtros de la
-izquierda acompañen el scroll en vez de quedarse arriba.
 
-**Qué creo que va a pasar:** las bombillas van a necesitar su propia ficha
-porque los datos son otros (alpaca, cabezal, filtro) y no los del mate
-(cedro, virola). Como el CSS de la ficha está hecho con clases y no con
-id, si le pongo las mismas clases a la ficha nueva el estilo lo va a
-agarrar solo y no voy a tener que escribir CSS.
-
-**Qué creo que puede salir mal:** que el selector que abre la ficha de los
-mates agarre también las bombillas, porque las dos van a tener el mismo
-data-especialidad. Voy a tener que acotarlo con el id de la sección.
-
-Con el visor: no tengo la foto grande de todos los productos. Los que no
-la tengan van a mostrar la imagen rota. Tendría que resolver que en ese
-caso muestre la del catálogo.
-
-Con los filtros: si los pego arriba con position sticky y pongo top: 0, el
-header me los va a tapar, porque el header también es sticky. El top tiene
-que ser la altura del header. Y en el celular, donde los filtros van
-arriba a todo lo ancho, pegarlos no tiene sentido.
-
-**Por qué necesito JavaScript:** el CSS puede mostrar y esconder cosas con
-:hover, pero no puede cambiar el src de una imagen según cuál tarjeta
-toqué. Eso necesita JS. Los filtros pegados, en cambio, son CSS puro:
-position: sticky no lleva nada de JS.
-
-**Lo que voy a borrar:** producto.html, porque quedó redundante. Entre el
-video, las categorías de abajo del video y los filtros, ya se llega a
-todos los productos. También sale "Productos" del menú.
 
 # prediccion 18/10
 
@@ -359,3 +329,29 @@ Antes de hacerlo pienso que:
 8. El campo de la foto es un input type="file" y no me sirve: el
    navegador devuelve C:\fakepath\ por seguridad. Lo paso a texto para
    escribir la ruta igual que en el HTML.
+
+# prediccion 9/11
+
+Predicción: preparar la base de datos para terminar la tienda. Agregar
+las columnas que faltan, permitir borrar desde el admin, crear un lugar
+para fotos públicas y cargar todo el catálogo de una vez con un script.
+
+Antes de hacerlo pienso que:
+1. La tabla productos no tiene especialidad, color ni foto grande, y la
+   ficha y el visor de la tienda los usan. Si paso la tienda a Supabase
+   sin esas columnas, las fichas se van a abrir vacías.
+2. Con "add column if not exists" el script no falla si lo corro dos
+   veces. Sin el "if not exists" la segunda vez tiraría error.
+3. Para borrar desde el admin va a hacer falta una política de RLS para
+   DELETE. Leer, guardar y borrar son permisos distintos. Si no la creo,
+   Supabase no va a dar error: va a responder 204 y no va a borrar nada,
+   que es peor porque parece que anduvo.
+4. Esa política deja borrar a cualquiera que tenga la anon key. Para la
+   materia está bien; en una tienda real el admin tendría que tener login.
+5. Escribir 35 productos a mano en el formulario es lento y me voy a
+   equivocar. Un solo INSERT con todos los valores los carga de una vez.
+6. Para fotos nuevas sin tocar el repo, un bucket público de Storage le
+   da a cada foto una URL que se puede pegar en el campo foto del admin.
+7. El script lo guardo en el repo (supabase/productos.sql) así el profe
+   ve qué corrí en la base, porque eso no queda en el código.
+8. Limpio predicciones.md: hay un bloque pegado dos veces.
