@@ -1545,3 +1545,189 @@ input:user-invalid,
 textarea:user-invalid {
   border-color: var(--rojo);
 }
+
+/* ===== Panel de administracion (backoffice) ===== */
+/* Todo empieza con .admin para no tocar ningun estilo de la tienda. */
+
+/* Un verde mas oscuro que el de la tienda: se nota que es otra zona.
+   Sticky y el borde dorado los hereda de la regla general de header. */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 32px;
+  text-align: left;
+  background-color: #1b3a27;
+}
+
+.admin-marca {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.admin-marca h1 {
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  color: var(--dorado-claro);
+}
+
+.admin-marca span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.admin-volver {
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid var(--dorado-claro);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.admin-volver:hover {
+  background-color: var(--dorado-claro);
+  color: var(--verde-oscuro);
+}
+
+/* main en la tienda es flex (filtros + catalogo). En el panel hay una sola
+   columna, asi que vuelve a block y se centra con un ancho maximo. */
+.admin-main {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.admin-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.admin-titulo h2 {
+  margin: 0;
+}
+
+/* El formulario arranca escondido. Va despues de .form-panel en el archivo,
+   y como pesan lo mismo, gana esta regla. */
+.admin-formulario {
+  display: none;
+}
+
+.admin-formulario.abierto {
+  display: grid;
+}
+
+/* min-height reserva el lugar: si no, la lista salta cuando aparece el texto. */
+.admin-aviso {
+  min-height: 1.6em;
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+.admin-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Foto | nombre y detalle | precio | boton */
+.admin-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+/* El fondo verde claro se ve si la foto no carga, en vez de un hueco. */
+.admin-miniatura {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: var(--verde-claro);
+}
+
+.admin-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.admin-detalle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--verde);
+}
+
+.admin-precio {
+  margin: 0;
+  font-weight: bold;
+  color: var(--verde-oscuro);
+  white-space: nowrap;
+}
+
+.admin-item-mensaje {
+  padding: 16px;
+  text-align: center;
+  color: var(--verde);
+}
+
+.admin-footer {
+  margin-top: 40px;
+  padding: 18px 32px;
+  font-size: 14px;
+  background-color: #1b3a27;
+}
+
+.admin-footer a {
+  color: var(--dorado-claro);
+}
+
+/* En el celular: el header se apila y el precio y el boton
+   bajan abajo del nombre, al lado de la foto. */
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin-marca {
+    align-items: center;
+  }
+
+  .admin-item {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .admin-miniatura {
+    width: 56px;
+    height: 56px;
+  }
+
+  .admin-precio,
+  .admin-item .eliminar {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

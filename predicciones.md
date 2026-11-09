@@ -355,3 +355,35 @@ Antes de hacerlo pienso que:
 7. El script lo guardo en el repo (supabase/productos.sql) así el profe
    ve qué corrí en la base, porque eso no queda en el código.
 8. Limpio predicciones.md: hay un bloque pegado dos veces.
+
+Predicción: convertir admin.html en un panel de administración de verdad:
+header y footer propios, lista de productos con foto, formulario que se
+abre con un botón, y poder borrar productos con DELETE.
+
+Antes de hacerlo pienso que:
+1. Hoy el admin usa el mismo header que la tienda y no se nota que es una
+   zona interna. Con un header y un footer propios (.admin-header y
+   .admin-footer) se distingue enseguida dónde estoy.
+2. Con 35 productos, la tabla de 5 columnas se hace muy ancha en el
+   celular. Una lista ul con una miniatura a la izquierda se acomoda
+   mejor y me deja ver qué producto estoy por borrar.
+3. El formulario no tiene que estar siempre a la vista. Lo escondo con
+   CSS y el botón "+ Agregar producto" le pone o le saca la clase
+   abierto con classList.toggle, como hice con otras ventanas.
+4. El POST tiene que mandar especialidad y color. Si no los mando, esas
+   columnas quedan vacías y en la tienda la ficha se va a abrir sin datos.
+5. Sin required, si dejo un precio vacío Number("") da 0 y se guarda un
+   producto gratis. Con required el navegador frena el envío antes de
+   que corra mi JavaScript.
+6. Para borrar uno solo hay que filtrar con ?id=eq.ID. Si me olvido del
+   filtro, el DELETE sería sobre toda la tabla. Cada botón Eliminar tiene
+   que saber el id de su producto, y lo puedo sacar del mismo objeto
+   producto con el que armo el li.
+7. confirm() devuelve true o false. Si el usuario cancela no tengo que
+   hacer el fetch, porque borrar no se puede deshacer.
+8. DELETE responde 204, sin cuerpo. Si le hago respuesta.json() va a
+   tirar error aunque se haya borrado bien.
+9. Después de guardar o borrar tengo que volver a llamar a
+   traerProductos(), así la lista muestra lo que hay en la base.
+10. El CSS nuevo va al final de style.css, con todas las clases
+    empezando por .admin, para no pisar estilos de la tienda.

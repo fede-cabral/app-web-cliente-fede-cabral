@@ -9,51 +9,46 @@
 </head>
 <body>
 
-  <header>
-
-    <div class="barra-superior">
-
-      <a class="marca" href="index.html">
-        <h1>Mates_Oliver</h1>
-        <span class="marca-lema">Panel de administración</span>
-      </a>
-
-      <nav>
-        <ul>
-          <li><a href="index.html">Ver la tienda</a></li>
-          <li><a href="admin.html">Panel</a></li>
-        </ul>
-      </nav>
-
-    </div>
-
+  <!-- Header propio del panel: no lleva el menú de la tienda porque
+       el admin no compra, administra. -->
+  <header class="admin-header">
+    <a class="admin-marca" href="admin.html">
+      <h1>Mates_Oliver</h1>
+      <span>Panel de administración</span>
+    </a>
+    <a class="admin-volver" href="index.html">Ver la tienda →</a>
   </header>
 
-  <main>
+  <main class="admin-main">
     <section>
 
-      <h2>Panel de administración</h2>
+      <div class="admin-titulo">
+        <h2>Productos</h2>
+        <button type="button" id="boton-agregar" class="admin-boton-agregar"
+                aria-expanded="false" aria-controls="form-producto">
+          + Agregar producto
+        </button>
+      </div>
 
       <p class="aviso-panel">
-        Los productos se leen y se guardan en la base de datos.
+        Los productos se leen, se guardan y se borran en la base de datos.
       </p>
 
-      <h3>Agregar un producto</h3>
-
-            <form class="form-panel" action="#" method="post">
+      <!-- Arranca escondido: el CSS lo muestra cuando tiene la clase abierto. -->
+      <form id="form-producto" class="form-panel admin-formulario" action="#" method="post">
 
         <fieldset class="grupo-campos">
           <legend>Datos del producto</legend>
 
           <div class="campo">
             <label for="producto-nombre">Nombre del producto</label>
-            <input type="text" id="producto-nombre" name="nombre"
+            <input type="text" id="producto-nombre" name="nombre" required
                    autocomplete="off" placeholder="Mate Comando claro">
           </div>
 
           <div class="campo">
             <label for="producto-categoria">Categoría</label>
-            <select id="producto-categoria" name="categoria">
+            <select id="producto-categoria" name="categoria" required>
               <option value="mates-calabaza">Mates de calabaza</option>
               <option value="mates-madera">Mates de madera</option>
               <option value="bombillas-alpaca">Bombillas de alpaca</option>
@@ -62,9 +57,21 @@
             </select>
           </div>
 
+          <div class="campo">
+            <label for="producto-especialidad">Especialidad o marca</label>
+            <input type="text" id="producto-especialidad" name="especialidad" required
+                   autocomplete="off" placeholder="Comando">
+          </div>
+
+          <div class="campo">
+            <label for="producto-color">Color (solo mates)</label>
+            <input type="text" id="producto-color" name="color"
+                   autocomplete="off" placeholder="Claro">
+          </div>
+
           <div class="campo ancho-total">
             <label for="producto-descripcion">Descripción</label>
-            <textarea id="producto-descripcion" name="descripcion" rows="3"
+            <textarea id="producto-descripcion" name="descripcion" rows="3" required
                       placeholder="Calabaza forrada en cuero, virola de alpaca."></textarea>
           </div>
 
@@ -76,60 +83,48 @@
           <div class="campo">
             <label for="producto-precio-lista">Precio de lista</label>
             <input type="number" id="producto-precio-lista" name="precio-lista"
-                   min="0" step="1000" placeholder="85000">
+                   required min="0" placeholder="85000">
           </div>
 
           <div class="campo">
             <label for="producto-precio-final">Precio final</label>
             <input type="number" id="producto-precio-final" name="precio-final"
-                   min="0" step="1000" placeholder="68000">
+                   required min="0" placeholder="68000">
           </div>
 
           <div class="campo">
             <label for="producto-stock">Stock</label>
             <input type="number" id="producto-stock" name="stock"
-                   min="0" placeholder="5">
+                   required min="0" placeholder="5">
           </div>
 
           <div class="campo">
-            <label for="producto-foto">Ruta de la foto</label>
-            <input type="text" id="producto-foto" name="foto"
+            <label for="producto-foto">Ruta o URL de la foto</label>
+            <input type="text" id="producto-foto" name="foto" required
                    placeholder="fotos/mate-comando-claro.jpeg">
           </div>
 
         </fieldset>
 
         <div class="ancho-total">
-          <p id="aviso-guardado" role="status" aria-live="polite"></p>
           <button type="submit">Guardar producto</button>
         </div>
 
       </form>
 
-      <h3>Productos cargados</h3>
+      <!-- Queda afuera del form: así se sigue viendo cuando el form se cierra. -->
+      <p id="aviso-admin" class="admin-aviso" role="status" aria-live="polite"></p>
 
-      <div class="tabla-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Categoría</th>
-              <th>Precio</th>
-              <th>Stock</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="tabla-productos">
-          </tbody>
-        </table>
-      </div>
+      <ul id="lista-productos" class="admin-lista">
+      </ul>
 
     </section>
   </main>
 
-  <footer>
-    <p>Mates_Oliver 2026 — Panel interno</p>
+  <footer class="admin-footer">
+    <p>Mates_Oliver 2026 — Panel interno · <a href="index.html">Volver a la tienda</a></p>
   </footer>
+
   <script src="admin.js"></script>
 </body>
 </html>
