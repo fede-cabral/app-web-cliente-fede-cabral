@@ -51,63 +51,22 @@
     <section class="carrito">
 
       <h2>Tu carrito</h2>
-      <p class="carrito-cantidad">2 productos</p>
+      <p class="carrito-cantidad">0 productos</p>
 
       <div class="carrito-columnas">
 
-        <div class="carrito-lista">
-
-          <article class="item-carrito" data-id="1">
-            <img src="fotos/mate-comando-claro.jpeg" alt="Mate Comando claro">
-
-            <div class="item-datos">
-              <h3>Mate Comando claro</h3>
-              <p class="item-detalle">Calabaza forrada en cuero · Virola de alpaca</p>
-
-              <div class="cantidad">
-                <button type="button" aria-label="Quitar uno">−</button>
-                <span>1</span>
-                <button type="button" aria-label="Agregar uno">+</button>
-              </div>
-            </div>
-
-            <div class="item-precio">
-              <p class="precio">$68.000</p>
-              <button type="button" class="eliminar">Eliminar</button>
-            </div>
-          </article>
-
-          <article class="item-carrito" data-id="2">
-            <img src="fotos/bombilla-alpaca-paracaidista.jpeg" alt="Bombilla Alpaca paracaidista">
-
-            <div class="item-datos">
-              <h3>Bombilla Alpaca paracaidista</h3>
-              <p class="item-detalle">Alpaca pulida · Escudo de paracaidista</p>
-
-              <div class="cantidad">
-                <button type="button" aria-label="Quitar uno">−</button>
-                <span>1</span>
-                <button type="button" aria-label="Agregar uno">+</button>
-              </div>
-            </div>
-
-            <div class="item-precio">
-              <p class="precio">$55.000</p>
-              <button type="button" class="eliminar">Eliminar</button>
-            </div>
-          </article>
-
-        </div>
+        <!-- Vacia a proposito: carrito.js la llena con lo que hay en localStorage. -->
+        <div class="carrito-lista"></div>
 
         <div class="resumen">
 
           <h3>Resumen de compra</h3>
 
-          <p class="linea"><span>Subtotal</span><span id="subtotal">$123.000</span></p>
+          <p class="linea"><span>Subtotal</span><span id="subtotal">$0</span></p>
           <p class="linea"><span>Envío</span><span class="gratis">Gratis</span></p>
-          <p class="linea total"><span>Total</span><span id="total">$123.000</span></p>
+          <p class="linea total"><span>Total</span><span id="total">$0</span></p>
 
-          <p class="cuotas">3 cuotas sin interés de $41.000</p>
+          <p class="cuotas">3 cuotas sin interés de $0</p>
 
           <button type="button" class="boton-comprar">Finalizar compra</button>
           <a class="seguir" href="index.html">Seguir comprando</a>
@@ -153,6 +112,7 @@
   <p>Mates_Oliver 2026. Todos los derechos reservados.</p>
 
 </footer>
+<script src="carrito-guardado.js"></script>
     <script src="carrito.js"></script>
 </body>
 </html>

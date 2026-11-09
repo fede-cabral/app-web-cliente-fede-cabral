@@ -1806,3 +1806,30 @@ button.boton-comprar {
 .aviso-catalogo:empty {
   display: none;
 }
+/* ===== Carrito con localStorage ===== */
+
+.carrito-vacio {
+  margin: 0;
+  background-color: #ffffff;
+  border: 1px solid var(--verde-claro);
+  border-radius: 10px;
+  padding: 28px;
+  text-align: center;
+  color: var(--verde);
+}
+
+.carrito-vacio a {
+  color: var(--verde-oscuro);
+  font-weight: bold;
+}
+
+/* Finalizar compra deshabilitado cuando el carrito esta vacio.
+   El :hover de .boton-comprar lo pintaria de dorado igual, como si se
+   pudiera apretar: por eso lo dejo fijo. */
+.boton-comprar:disabled,
+.boton-comprar:disabled:hover {
+  background-color: var(--verde-oscuro);
+  color: #ffffff;
+  opacity: 0.45;
+  cursor: not-allowed;
+}

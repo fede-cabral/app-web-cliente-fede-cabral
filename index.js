@@ -124,6 +124,50 @@ document.addEventListener('keydown', function (evento) {
   }
 });
 
+// ===== Agregar al carrito (localStorage) =====
+// leerCarrito y guardarCarrito vienen de carrito-guardado.js, que se
+// carga antes que este archivo.
+const agregarAlCarrito = (producto, boton) => {
+  const carrito = leerCarrito();
+
+  // Si ya estaba, sumo uno. Si no, lo agrego con cantidad 1.
+  // Asi no aparece dos veces el mismo mate en el carrito.
+  const yaEsta = carrito.find((item) => item.id === producto.id);
+
+  if (yaEsta) {
+    yaEsta.cantidad = yaEsta.cantidad + 1;
+  } else {
+    // Guardo solo lo que el carrito necesita mostrar, no el producto entero.
+    carrito.push({
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio_final,
+      foto: producto.foto,
+      detalle: producto.descripcion,
+      cantidad: 1
+    });
+  }
+
+  guardarCarrito(carrito);
+
+  // Aviso cortito en el mismo boton, para que se note que anduvo.
+  // Vuelvo a un texto fijo y no al que tenia antes: si tocan dos veces
+  // rapido, "el de antes" ya seria "¡Agregado!" y quedaria trabado asi.
+  boton.textContent = '¡Agregado!';
+  setTimeout(() => {
+    boton.textContent = 'Agregar al carrito';
+  }, 1200);
+};
+
+// El boton de la ficha no sabe que producto se esta mostrando: lo
+// guardo aca cada vez que se abre una ficha.
+let productoEnFicha = null;
+
+document.querySelectorAll('.ficha .boton-comprar').forEach((boton) => {
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(productoEnFicha, boton);
+  });
+});
 // ===== Convierte UN producto en UNA tarjeta <article> =====
 const crearTarjeta = (producto) => {
   const tarjeta = document.createElement('article');
@@ -169,12 +213,12 @@ const crearTarjeta = (producto) => {
   cuotas.className = 'cuotas';
   cuotas.textContent = '3 cuotas sin interés de ' + formatearPrecio(Math.ceil(producto.precio_final / 3));
 
-  // Ahora es un <button> y no un <a>: no lleva a otra pagina, va a hacer
-  // algo aca mismo. Lo que hace lo agregamos en el paso del carrito.
+  // Es un <button> y no un <a>: no lleva a otra pagina, guarda en el carrito.
   const boton = document.createElement('button');
   boton.type = 'button';
   boton.className = 'boton-comprar';
   boton.textContent = 'Agregar al carrito';
+  boton.addEventListener('click', () => agregarAlCarrito(producto, boton));
 
   tarjeta.append(precio, cuotas, boton);
 
@@ -184,6 +228,7 @@ const crearTarjeta = (producto) => {
     tarjeta.addEventListener('click', (evento) => {
       // El clic en el boton no tiene que abrir la ficha.
       if (evento.target.closest('.boton-comprar')) return;
+      productoEnFicha = producto;
       abrirFicha(fondo, tarjeta);
     });
   }
